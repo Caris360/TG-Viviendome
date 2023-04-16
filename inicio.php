@@ -4,7 +4,6 @@ session_start();
 if (!isset($_SESSION['UsuarioActivo'])) {
     header('location: /login.php');
 }
-
 ?>
 
 <html>

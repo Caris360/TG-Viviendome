@@ -4,10 +4,7 @@ session_start();
 if (!isset($_SESSION['UsuarioActivo'])) {
     header('location: /login.php');
 }
-
 ?>
-
-
 
 <html>
 
@@ -41,36 +38,35 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                         </tr>
                                     </tbody>
 
-                                    <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="Actualizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content" style="border-radius: 20px;">
 
                                                 <div class="modal-header">
-                                                    <h5 style="font-family: Poppins-Bold;" class="modal-title" id="exampleModalLabel">Editar Cliente</h5>
+                                                    <h5 style="font-family: Poppins-Bold;" class="modal-title" id="exampleModalLabel">Editar Taller</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
-                                                <form method="POST" action="config/update/actualizar_cliente_config.php" id="FormularioCliente">
+                                                <form method="POST" action="config/update/actualizar_taller_config.php" id="FormularioTaller">
                                                     <div class="modal-body">
-                                                        <input type="hidden" required id="Documento" name="Documento" class="form-control form-control-lg" />
+                                                        <input type="hidden" required id="ID" name="ID" class="form-control form-control-lg" />
                                                         <div class="form-outline mb-4">
-                                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre:</label>
-                                                            <input type="text" required id="NombreCliente" name="NombreCliente" class="form-control form-control-lg" />
+                                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre Taller:</label>
+                                                            <input type="text" required id="NombreTaller" name="NombreTaller" class="form-control form-control-lg" />
                                                         </div>
                                                         <div class="form-outline mb-4">
-                                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Dirección:</label>
-                                                            <input type="text" required id="Direccion" name="Direccion" class="form-control form-control-lg" />
+                                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Valor Inscripción:</label>
+                                                            <input autocomplete="off" type="text" placeholder="$0" data-type="currency" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" required id="ValorInscripcion" name="ValorInscripcion" class="form-control form-control-lg" />
                                                         </div>
-
                                                         <div class="form-outline mb-4">
-                                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example9">Contacto:</label>
-                                                            <input type="text" required id="Contacto" name="Contacto" class="form-control form-control-lg" />
-                                                        </div>
-
-                                                        <div class="form-outline mb-4">
-                                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example90">Correo:</label>
-                                                            <input type="text" required id="Correo" name="Correo" class="form-control form-control-lg" />
+                                                            <div class="form-outline">
+                                                                <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Fecha:</label>
+                                                                <span class="datepicker-toggle">
+                                                                    <span class="datepicker-toggle-button"></span>
+                                                                    <input id="FechaE" name="FechaE" type="date" class="datepicker-input form-control form-control-lg">
+                                                                </span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
@@ -87,25 +83,21 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                             <div class="modal-content" style="border-radius: 20px;">
 
                                                 <div class="modal-header">
-                                                    <h5 style="font-family: Poppins-Bold;" class="modal-title" id="exampleModalLabel">Eliminar Cliente</h5>
+                                                    <h5 style="font-family: Poppins-Bold;" class="modal-title" id="exampleModalLabel">Eliminar Taller</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
-                                                <form method="POST" action="config/delete/eliminar_cliente_config.php" id="FormularioCliente">
+                                                <form method="POST" action="config/delete/eliminar_taller_config.php" id="FormularioTaller">
                                                     <div class="modal-body">
-                                                        <input type="hidden" required id="DocumentoE" name="DocumentoE" class="form-control form-control-lg" />
+                                                        <input type="hidden" required id="IDE" name="IDE" class="form-control form-control-lg" />
                                                         <div class="form-outline mb-4">
-                                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Documento:</label>
-                                                            <input type="text" disabled id="DocumentoS" name="DocumentoS" class="form-control form-control-lg" />
+                                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre Taller:</label>
+                                                            <input type="text" disabled required id="NombreTallerE" name="NombreTallerE" class="form-control form-control-lg" />
                                                         </div>
                                                         <div class="form-outline mb-4">
-                                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre:</label>
-                                                            <input type="text" disabled required id="NombreClienteE" name="NombreClienteE" class="form-control form-control-lg" />
-                                                        </div>
-                                                        <div class="form-outline mb-4">
-                                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example90">Correo:</label>
-                                                            <input type="text" disabled required id="CorreoE" name="CorreoE" class="form-control form-control-lg" />
+                                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Valor Inscripción:</label>
+                                                            <input autocomplete="off" disabled type="text" placeholder="$0" data-type="currency" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" required id="ValorInscripcionE" name="ValorInscripcionE" class="form-control form-control-lg" />
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
@@ -113,9 +105,11 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                                         <input type="submit" class="btn btn-danger btn-sm" name="enviar" value="Confirmar" />
                                                     </div>
                                                 </form>
+
                                             </div>
                                         </div>
                                     </div>
+
                                 </table>
                             </div>
                         </div>
@@ -129,11 +123,17 @@ if (!isset($_SESSION['UsuarioActivo'])) {
 
 </body>
 
-
 </html>
+
 <script>
     $(document).ready(function() {
         listar();
+        $('.timepicker').timepicker({
+            timeFormat: 'h:mm p',
+            interval: 30,
+            dropdown: true,
+            scrollbar: true
+        });
     });
 
     var listar = function() {
@@ -142,8 +142,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                 "method": "POST",
                 "url": "config/listar_talleres_data.php"
             },
-            "columns": [
-                {
+            "columns": [{
                     "data": "NOMBRE_TALLER"
                 },
                 {
@@ -156,7 +155,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                     "data": "HORA"
                 },
                 {
-                    "defaultContent": "<button type='button' name='editar' id='editar' class='editar btn btn-success' data-toggle='modal' data-target='#Modal'><i class='fa fa-pencil-square-o'></i></button>&nbsp;&nbsp;<button type='button' name='eliminar' id='eliminar' class='eliminar btn btn-danger' data-toggle='modal' data-target='#Eliminar'><i class='fa fa-times'></i></button>"
+                    "defaultContent": "<button type='button' name='editar' id='editar' class='editar btn btn-success' data-toggle='modal' data-target='#Actualizar'><i class='fa fa-pencil-square-o'></i></button>&nbsp;&nbsp;<button type='button' name='eliminar' id='eliminar' class='eliminar btn btn-danger' data-toggle='modal' data-target='#Eliminar'><i class='fa fa-times'></i></button>"
                 }
 
             ],
@@ -187,11 +186,10 @@ if (!isset($_SESSION['UsuarioActivo'])) {
     var obtener_data_editar = function(tbody, table) {
         $(tbody).on("click", "button.editar", function() {
             var data = table.row($(this).parents("tr")).data();
-            var id = $("#Documento").val(data.IDENTIFICACION_CLIENTE),
-                nombre = $("#NombreCliente").val(data.NOMBRE_PUBLICO),
-                direccion = $("#Direccion").val(data.DIRECCION),
-                contacto = $("#Contacto").val(data.NUMERO_CONTACTO),
-                correo = $("#Correo").val(data.CORREO);
+            var id = $("#ID").val(data.ID_TALLER),
+                nombre = $("#NombreTaller").val(data.NOMBRE_TALLER),
+                valor = $("#ValorInscripcion").val(data.VALOR),
+                fecha = $("#FechaE").val(data.FECHA_TALLER)
             console.log(data);
         });
     }
@@ -199,10 +197,9 @@ if (!isset($_SESSION['UsuarioActivo'])) {
     var obtener_data_eliminar = function(tbody, table) {
         $(tbody).on("click", "button.eliminar", function() {
             var data = table.row($(this).parents("tr")).data();
-            var id = $("#DocumentoE").val(data.IDENTIFICACION_CLIENTE),
-                nombre = $("#NombreClienteE").val(data.NOMBRE_PUBLICO),
-                documento = $("#DocumentoS").val(data.IDENTIFICACION_CLIENTE),
-                correo = $("#CorreoE").val(data.CORREO);
+            var id = $("#IDE").val(data.ID_TALLER),
+                nombre = $("#NombreTallerE").val(data.NOMBRE_TALLER),
+                valor = $("#ValorInscripcionE").val(data.VALOR)
             console.log(data);
         });
     }

@@ -1,9 +1,7 @@
 <?php
 include('config/conexion_config.php');
 session_start();
-if (isset($_SESSION['UsuarioActivo'])) {
-    ///
-} else {
+if (!isset($_SESSION['UsuarioActivo'])) {
     header('location: /login.php');
 }
 ?>
@@ -26,8 +24,9 @@ if (isset($_SESSION['UsuarioActivo'])) {
 
                         <div class="col-xl-6 d-none d-sm-block" style="height: 82vh; border-radius: 20px;">
                             <div class="card-body p-md-5 text-black">
+
                                 <h3 style="font-family: Poppins-Bold;" class="mb-5 text-uppercase text-center">Registrar Clase</h3>
-                                <form method="POST" action="config/register/registro_clase_config.php" id="FormularioCliente">
+                                <form method="POST" action="config/register/registro_clase_config.php" id="FormularioClase">
                                     <div class="form-outline mb-4">
                                         <label style="font-family: Poppins-Bold;" style="font-family: Poppins-Bold;" class="form-label" for="form3Example1m">Grupo:</label>
                                         <select required style="font-family: Poppins-Medium;" id="Grupo" name="Grupo" class="selectpicker form-control form-control-lg">
@@ -73,12 +72,13 @@ if (isset($_SESSION['UsuarioActivo'])) {
                                         <input style="font-family: Poppins-Bold;" type="submit" class="btn btn-primary btn-lg ms-2" value="Guardar" />
                                     </div>
                                 </form>
+
                             </div>
                         </div>
 
                         <div class="col-xl-6" style=" margin-top: 2%; ">
 
-                            <table class="table" id="TablaGrupo" style="box-shadow: 2px 2px 2px 2px lightgray;">
+                            <table class="table" id="TablaGrupos" style="box-shadow: 2px 2px 2px 2px lightgray;">
                                 <thead class="table-dark" style="font-family: Poppins-Bold;">
                                     <tr>
                                         <th style="border-top-left-radius: 20px;" scope="col">GRUPO</th>
@@ -95,7 +95,7 @@ if (isset($_SESSION['UsuarioActivo'])) {
                                     </tr>
                                 </tbody>
 
-                                <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="Actualizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content" style="border-radius: 20px;">
 
@@ -105,7 +105,7 @@ if (isset($_SESSION['UsuarioActivo'])) {
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
-                                            <form method="POST" action="config/update/actualizar_clase_config.php" id="FormularioCliente">
+                                            <form method="POST" action="config/update/actualizar_clase_config.php" id="FormularioClase">
                                                 <div class="modal-body">
                                                     <input type="hidden" required id="ID" name="ID" class="form-control form-control-lg" />
                                                     <div class="form-outline mb-4">
@@ -155,7 +155,7 @@ if (isset($_SESSION['UsuarioActivo'])) {
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
-                                            <form method="POST" action="config/delete/eliminar_clase_config.php" id="FormularioCliente">
+                                            <form method="POST" action="config/delete/eliminar_clase_config.php" id="FormularioClase">
                                                 <div class="modal-body">
                                                     <input type="hidden" required id="IDE" name="IDE" class="form-control form-control-lg" />
                                                     <div class="form-outline mb-4">
@@ -201,8 +201,6 @@ if (isset($_SESSION['UsuarioActivo'])) {
 
     </section>
 
-    <?php include('template/footer.php'); ?>
-
 </body>
 
 </html>
@@ -219,7 +217,7 @@ if (isset($_SESSION['UsuarioActivo'])) {
     });
 
     var listar = function() {
-        var table = $('#TablaGrupo').DataTable({
+        var table = $('#TablaGrupos').DataTable({
             "ajax": {
                 "method": "POST",
                 "url": "config/listar_clases_data.php"
@@ -237,7 +235,7 @@ if (isset($_SESSION['UsuarioActivo'])) {
                     "data": "HORA"
                 },
                 {
-                    "defaultContent": "<button type='button' name='editar' id='editar' class='editar btn btn-success' data-toggle='modal' data-target='#Modal'><i class='fa fa-pencil-square-o'></i></button>&nbsp;&nbsp;<button type='button' name='eliminar' id='eliminar' class='eliminar btn btn-danger' data-toggle='modal' data-target='#Eliminar'><i class='fa fa-times'></i></button>"
+                    "defaultContent": "<button type='button' name='editar' id='editar' class='editar btn btn-success' data-toggle='modal' data-target='#Actualizar'><i class='fa fa-pencil-square-o'></i></button>&nbsp;&nbsp;<button type='button' name='eliminar' id='eliminar' class='eliminar btn btn-danger' data-toggle='modal' data-target='#Eliminar'><i class='fa fa-times'></i></button>"
                 }
 
             ],

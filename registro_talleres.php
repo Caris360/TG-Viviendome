@@ -1,9 +1,7 @@
 <?php
 include('config/conexion_config.php');
 session_start();
-if (isset($_SESSION['UsuarioActivo'])) {
-    ///
-} else {
+if (!isset($_SESSION['UsuarioActivo'])) {
     header('location: /login.php');
 }
 ?>
@@ -25,7 +23,7 @@ if (isset($_SESSION['UsuarioActivo'])) {
                     <div class="row g-0">
 
                         <div class="col-xl-6 d-none d-sm-block">
-                            <img style="height: 75vh; width: 100vh;" src="images/Taller.jpg" alt="Sample photo" class="img-fluid" />
+                            <img style="height: 82vh; width: 100vh;" src="images/Talleres.jpg" alt="Sample photo" class="img-fluid" />
                         </div>
 
                         <div class="col-xl-6" style="height: 82vh; border-radius: 20px;">

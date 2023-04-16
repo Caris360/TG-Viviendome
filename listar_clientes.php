@@ -1,25 +1,20 @@
 <?php
 include('config/conexion_config.php');
 session_start();
-if (isset($_SESSION['UsuarioActivo'])) {
-    ///
-} else {
+if (!isset($_SESSION['UsuarioActivo'])) {
     header('location: /login.php');
 }
-
 ?>
 
-
-
 <html>
-<?php include('template/head.php') ?>
 
-<head>
-    <title>Clientes</title>
-</head>
+<?php include('template/head.php') ?>
+<title>Clientes</title>
 
 <body>
+
     <?php include('template/navbar.php'); ?>
+
     <section class="h-80">
 
         <div class="row d-flex justify-content-center align-items-center h-80" style="width: 80%; margin-left: 10%; border-radius: 20px;">
@@ -27,8 +22,10 @@ if (isset($_SESSION['UsuarioActivo'])) {
                 <div class="card card-registration my-2" style=" border-radius: 20px;">
                     <div class="row g-0">
                         <div class="card-body p-md-5 text-black" style="height: 80vh;">
+
                             <div class="col-12">
                                 <table class="table" id="TablaClientes" style="box-shadow: 2px 2px 2px 2px lightgray;">
+
                                     <thead class="table-dark" style="font-family: Poppins-Bold;">
                                         <tr>
                                             <th style="border-top-left-radius: 20px;" scope="col">TIPO DOCUMENTO</th>
@@ -43,11 +40,10 @@ if (isset($_SESSION['UsuarioActivo'])) {
 
                                     <tbody style="font-family: Poppins-Medium; text-align: left;">
                                         <tr class="alert">
-
                                         </tr>
                                     </tbody>
 
-                                    <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="Actualizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content" style="border-radius: 20px;">
 
@@ -57,13 +53,17 @@ if (isset($_SESSION['UsuarioActivo'])) {
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
+
                                                 <form method="POST" action="config/update/actualizar_cliente_config.php" id="FormularioCliente">
                                                     <div class="modal-body">
+
                                                         <input type="hidden" required id="Documento" name="Documento" class="form-control form-control-lg" />
+
                                                         <div class="form-outline mb-4">
                                                             <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre:</label>
-                                                            <input type="text" required id="NombreCliente" name="NombreCliente" class="form-control form-control-lg" />
+                                                            <input type="text" style="text-transform: capitalize;" required id="NombreCliente" name="NombreCliente" class="form-control form-control-lg" />
                                                         </div>
+
                                                         <div class="form-outline mb-4">
                                                             <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Dirección:</label>
                                                             <input type="text" required id="Direccion" name="Direccion" class="form-control form-control-lg" />
@@ -78,11 +78,14 @@ if (isset($_SESSION['UsuarioActivo'])) {
                                                             <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example90">Correo:</label>
                                                             <input type="text" required id="Correo" name="Correo" class="form-control form-control-lg" />
                                                         </div>
+
                                                     </div>
+
                                                     <div class="modal-footer">
                                                         <input type="button" class="btn btn-secondary btn-lg ms-2" data-dismiss="modal" value="Cerrar" />
                                                         <input type="submit" class="btn btn-primary btn-sm" name="enviar" value="Guardar" />
                                                     </div>
+
                                                 </form>
                                             </div>
                                         </div>
@@ -98,47 +101,53 @@ if (isset($_SESSION['UsuarioActivo'])) {
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
+
                                                 <form method="POST" action="config/delete/eliminar_cliente_config.php" id="FormularioCliente">
                                                     <div class="modal-body">
+
                                                         <input type="hidden" required id="DocumentoE" name="DocumentoE" class="form-control form-control-lg" />
+
                                                         <div class="form-outline mb-4">
                                                             <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Documento:</label>
                                                             <input type="text" disabled id="DocumentoS" name="DocumentoS" class="form-control form-control-lg" />
                                                         </div>
+
                                                         <div class="form-outline mb-4">
                                                             <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre:</label>
                                                             <input type="text" disabled required id="NombreClienteE" name="NombreClienteE" class="form-control form-control-lg" />
                                                         </div>
+
                                                         <div class="form-outline mb-4">
                                                             <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example90">Correo:</label>
                                                             <input type="text" disabled required id="CorreoE" name="CorreoE" class="form-control form-control-lg" />
                                                         </div>
+
                                                     </div>
+
                                                     <div class="modal-footer">
                                                         <input type="button" class="btn btn-secondary btn-lg ms-2" data-dismiss="modal" value="Cancelar" />
                                                         <input type="submit" class="btn btn-danger btn-sm" name="enviar" value="Confirmar" />
                                                     </div>
+                                                    
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
                                 </table>
                             </div>
+
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
 
     </section>
 
-    <?php include('template/footer.php'); ?>
-
 </body>
 
-
 </html>
+
 <script>
     $(document).ready(function() {
         listar();
@@ -169,7 +178,7 @@ if (isset($_SESSION['UsuarioActivo'])) {
                     "data": "CORREO"
                 },
                 {
-                    "defaultContent": "<button type='button' name='editar' id='editar' class='editar btn btn-success' data-toggle='modal' data-target='#Modal'><i class='fa fa-pencil-square-o'></i></button>&nbsp;&nbsp;<button type='button' name='eliminar' id='eliminar' class='eliminar btn btn-danger' data-toggle='modal' data-target='#Eliminar'><i class='fa fa-times'></i></button>"
+                    "defaultContent": "<button type='button' name='editar' id='editar' class='editar btn btn-success' data-toggle='modal' data-target='#Actualizar'><i class='fa fa-pencil-square-o'></i></button>&nbsp;&nbsp;<button type='button' name='eliminar' id='eliminar' class='eliminar btn btn-danger' data-toggle='modal' data-target='#Eliminar'><i class='fa fa-times'></i></button>"
                 }
 
             ],

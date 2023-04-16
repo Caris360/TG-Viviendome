@@ -1,12 +1,9 @@
 <?php
 include('config/conexion_config.php');
 session_start();
-if (isset($_SESSION['UsuarioActivo'])) {
-    ///
-} else {
+if (!isset($_SESSION['UsuarioActivo'])) {
     header('location: /login.php');
 }
-
 ?>
 
 <html>
@@ -31,7 +28,9 @@ if (isset($_SESSION['UsuarioActivo'])) {
 
                         <div class="col-xl-6" style="height: 82vh; border-radius: 20px;">
                             <div class="card-body p-md-5 text-black">
+
                                 <h3  style="font-family: Poppins-Bold;" class="mb-5 text-uppercase">Registrar Cliente</h3>
+
                                 <form method="POST" action="config/register/registro_clientes_config.php" id="FormularioCliente">
                                     <div class="row">
                                         <div class="col-md-6 mb-4">
@@ -56,8 +55,9 @@ if (isset($_SESSION['UsuarioActivo'])) {
 
                                     <div class="form-outline mb-4">
                                         <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre:</label>
-                                        <input type="text" required id="NombreCliente" name="NombreCliente" class="form-control form-control-lg" />
+                                        <input style="text-transform: capitalize;" type="text" required id="NombreCliente" name="NombreCliente" class="form-control form-control-lg" />
                                     </div>
+
                                     <div class="form-outline mb-4">
                                         <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Dirección:</label>
                                         <input type="text" required id="Direccion" name="Direccion" class="form-control form-control-lg" />
@@ -78,6 +78,7 @@ if (isset($_SESSION['UsuarioActivo'])) {
                                         <input  style="font-family: Poppins-Bold;" type="submit" class="btn btn-primary btn-lg ms-2" value="Guardar"/>
                                     </div>
                                 </form>
+                                
                             </div>
                         </div>
 
@@ -87,8 +88,6 @@ if (isset($_SESSION['UsuarioActivo'])) {
         </div>
 
     </section>
-
-    <?php include('template/footer.php'); ?>
 
 </body>
 

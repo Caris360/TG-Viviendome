@@ -4,21 +4,28 @@ require('/xampp/htdocs/ViviendomeCoaching/config/conexion_config.php');
 
 $TipoDocumento = $_POST['TipoDocumento'];
 $Documento = $_POST['Documento'];
-$NombreCliente = $_POST['NombreCliente'];
+$nombre = $_POST['NombreCliente'];
 $Direccion = $_POST['Direccion'];
 $Contacto = $_POST['Contacto'];
 $Correo = $_POST['Correo'];
 $Tipo = '';
 
+$NombreCliente = ucwords($nombre);
+
 $validaCliente = mysqli_query($conexion, "SELECT * FROM cliente WHERE IDENTIFICACION_CLIENTE = '$Documento'");
+
+if ($TipoDocumento == '1') {
+    echo "<script>alert('Debe seleccionar un tipo de documento'); window.location='/registro_clientes.php'; </script>";
+} 
+
+if (strlen($Documento) < 7) {
+    echo "<script>alert('El Documento $Documento no cuenta con un formato adecuado'); window.location='/registro_clientes.php'; </script>";
+}
 
 if ($validaCliente->num_rows == 1) {
     echo "<script>alert('Ya existe un cliente con el documento: $Documento'); window.location='/registro_clientes.php'; </script>";
 }
-
-if ($TipoDocumento == '1') {
-    echo "<script>alert('Debe seleccionar un tipo de documento'); window.location='/registro_clientes.php'; </script>";
-} else {
+else {
 
     switch ($TipoDocumento) {
         case '2':
@@ -39,3 +46,5 @@ if ($TipoDocumento == '1') {
     echo "<script>alert('¡Cliente registrado con éxito!'); window.location='/registro_clientes.php'; </script>";
 
 }
+
+?>

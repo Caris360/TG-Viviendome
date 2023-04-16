@@ -22,3 +22,5 @@ if ($validaAcademia->num_rows == 1) {
 
     echo "<script>alert('¡Academia registrada con éxito!'); window.location='/gestion_academias.php'; </script>";
 }
+
+?>

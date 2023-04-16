@@ -12,8 +12,8 @@ $consulta = mysqli_query($conexion, "SELECT * FROM usuario WHERE User = '$User' 
 if ($consulta->num_rows == 1) {
     $datos = $consulta->fetch_assoc();
     $_SESSION['UsuarioActivo'] = $datos;
-    if (isset($_SESSION['UsuarioActivo'])) {       
-            header('location: /inicio.php');                   
+    if (isset($_SESSION['UsuarioActivo'])) {
+            header('location: /inicio.php');
     } else {
         header('location: /login.php');
     }
