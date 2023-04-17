@@ -2296,7 +2296,7 @@ pre code {
     color: #495057;
     background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid #ced4da;
+    border: 1px solid #d8d8d8;
     border-radius: 0.25rem;
     -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
     transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
@@ -2308,6 +2308,7 @@ pre code {
 @media (prefers-reduced-motion: reduce) {
     .form-control {
         -webkit-transition: none;
+        border: 1px solid #d8d8d8;
         -o-transition: none;
         transition: none;
     }
@@ -2418,6 +2419,7 @@ select.form-control:focus::-ms-value {
     padding: 0.5rem 1rem;
     font-size: 1.25rem;
     line-height: 1.5;
+    border: 1px solid #d8d8d8;
     border-radius: 0.3rem;
 }
 
@@ -11894,11 +11896,12 @@ h5,
     height: 48px;
     background: rgba(0, 0, 0, 0.05);
     color: #000;
+    
     font-size: 16px;
     border-radius: 50px;
     -webkit-box-shadow: none;
     box-shadow: none;
-    border: 1px solid transparent;
+    border: 1px solid #d8d8d8;
     padding-left: 20px;
     padding-right: 20px;
     -webkit-transition: all 0.2s ease-in-out;

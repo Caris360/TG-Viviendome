@@ -30,7 +30,7 @@
                         <a href="/listar_talleres.php" class="dropdown-item">Listar</a>
                     </div>
                 </div>
-                <a style="color: #000;" href="#" class="nav-item nav-link">Inscripciones</a>
+                <a style="color: #000;" href="/gestion_inscripciones.php" class="nav-item nav-link">Inscripciones</a>
                 <div class="nav-item dropdown">
                     <a style="color: #000;" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Repisa</a>
                     <div class="dropdown-menu">
