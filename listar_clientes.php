@@ -24,7 +24,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                         <div class="card-body p-md-5 text-black" style="height: 80vh;">
 
                             <div class="col-12">
-                                <table class="table" id="TablaClientes" style="box-shadow: 2px 2px 2px 2px lightgray;">
+                                <table class="table" width="100%" id="TablaClientes" style="box-shadow: 2px 2px 2px 2px lightgray;">
 
                                     <thead class="table-dark" style="font-family: Poppins-Bold;">
                                         <tr>
@@ -182,6 +182,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                 }
 
             ],
+            responsive: true,
             dom: 'Blfrtip',
             'pageLength': 5,
             "lengthMenu": [5, 7],

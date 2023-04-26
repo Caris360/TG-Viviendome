@@ -71,7 +71,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
 
                         <div class="col-xl-6" style=" margin-top: 2%; ">
 
-                            <table class="table" id="TablaGrupo" style="box-shadow: 2px 2px 2px 2px lightgray;">
+                            <table class="table" width="100%" id="TablaGrupo" style="box-shadow: 2px 2px 2px 2px lightgray;">
                                 <thead class="table-dark" style="font-family: Poppins-Bold;">
                                     <tr>
                                         <th style="border-top-left-radius: 20px;" scope="col">NOMBRE GRUPO</th>
@@ -184,7 +184,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                 }
 
             ],
-
+            responsive: true,
             'pageLength': 5,
             "lengthMenu": [5, 7],
             "language": {

@@ -21,7 +21,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                     <div class="row g-0">
                         <div class="card-body p-md-5 text-black" style="height: 80vh;">
                             <div class="col-12">
-                                <table class="table" id="TablaTalleres" style="box-shadow: 2px 2px 2px 2px lightgray">
+                                <table class="table" width="100%" id="TablaTalleres" style="box-shadow: 2px 2px 2px 2px lightgray">
                                     <thead class="table-dark" style="font-family: Poppins-Bold">
                                         <tr>
                                             <th style="border-top-left-radius: 20px; text-align: center" scope="col">TALLER</th>
@@ -159,6 +159,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                 }
 
             ],
+            responsive: true,
             dom: 'Blfrtip',
             'pageLength': 5,
             "lengthMenu": [5, 7],
