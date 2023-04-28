@@ -27,28 +27,29 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                         </div>
 
                         <div class="col-xl-6" style="height: 82vh; border-radius: 20px;">
+
                             <div class="card-body p-md-5 text-black">
 
-                                <h3  style="font-family: Poppins-Bold;" class="mb-5 text-uppercase">Registrar Cliente</h3>
+                                <h3 style="font-family: Poppins-Bold;" class="mb-5 text-uppercase">Registrar Cliente</h3>
 
-                                <form method="POST" action="config/register/registro_clientes_config.php" id="FormularioCliente">
+                                <form method="POST" id="FormularioCliente">
                                     <div class="row">
                                         <div class="col-md-6 mb-4">
                                             <div class="form-outline">
                                                 <label style="font-family: Poppins-Bold;" style="font-family: Poppins-Bold;" class="form-label" for="form3Example1m">Tipo Documento:</label>
                                                 <select required style="font-family: Poppins-Medium;" id="TipoDocumento" name="TipoDocumento" class="form-control form-control-lg">
-                                                    <option value="1"  selected>Seleccione uno...</option>
-                                                    <option value="2" >Cédula Ciudadanía</option>
-                                                    <option value="3" >Cédula Extranjería</option>
-                                                    <option value="4" >Tarjeta de Identidad</option>
-                                                    <option value="5" >Pasaporte</option>
+                                                    <option value="1" selected>Seleccione uno...</option>
+                                                    <option value="2">Cédula Ciudadanía</option>
+                                                    <option value="3">Cédula Extranjería</option>
+                                                    <option value="4">Tarjeta de Identidad</option>
+                                                    <option value="5">Pasaporte</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-4">
                                             <div class="form-outline">
                                                 <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example1n">Número Documento:</label>
-                                                <input type="number"required  id="Documento" name="Documento" class="form-control form-control-lg" />
+                                                <input type="number" required id="Documento" name="Documento" class="form-control form-control-lg" />
                                             </div>
                                         </div>
                                     </div>
@@ -74,15 +75,15 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                     </div>
 
                                     <div class="d-flex justify-content-end pt-3">
-                                        <input  style="font-family: Poppins-Bold;" type="reset" class="btn btn-light btn-lg" value="Limpiar Formulario" />
-                                        <input  style="font-family: Poppins-Bold;" type="submit" class="btn btn-primary btn-lg ms-2" value="Guardar"/>
+                                        <input style="font-family: Poppins-Bold;" type="reset" class="btn btn-light btn-lg" value="Limpiar Formulario" />
+                                        <button style="font-family: Poppins-Bold;"  class="btn btn-primary btn-lg ms-2">Guardar</button>
                                     </div>
                                 </form>
-                                
+
                             </div>
                         </div>
 
-                    </div>   
+                    </div>
                 </div>
             </div>
         </div>
@@ -92,3 +93,25 @@ if (!isset($_SESSION['UsuarioActivo'])) {
 </body>
 
 </html>
+<!--<script>
+    function insertar() {
+        var datos = $("#FormularioCliente").serialize();
+
+        $.ajax({
+            data: datos,
+            type: 'POST',
+            url: '/config/register/registro_clientes_config.php',
+            success: function(data) {
+                if (data !== null) {
+                    alert('¡Error! Ya existe un cliente con este documento.')
+                    setTimeout(200000);
+                } else {
+                    alert('Cliente Registrado')
+                    setTimeout(200000);
+
+                }
+            }
+
+        });
+    }
+</script>-->
