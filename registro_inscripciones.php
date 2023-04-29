@@ -37,7 +37,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                                     <option selected disabled>Seleccione uno</option>
                                                     <?php
                                                     include('config/conexion_config.php');
-                                                    $sql = mysqli_query($conexion, "SELECT * FROM cliente");
+                                                    $sql = mysqli_query($conexion, "SELECT * FROM cliente ORDER BY NOMBRE_PUBLICO ASC");
                                                     while ($row = mysqli_fetch_array($sql)) {
                                                     ?>
                                                         <option value="<?php printf($row['IDENTIFICACION_CLIENTE']) ?>"><?php printf($row['NOMBRE_PUBLICO']) ?></option>

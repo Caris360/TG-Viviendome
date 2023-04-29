@@ -3,10 +3,12 @@
 require('/xampp/htdocs/ViviendomeCoaching/config/conexion_config.php');
 
 $nombreTaller = $_POST['NombreTaller'];
-$valor = $_POST['ValorTaller'];
+$precio = $_POST['ValorTaller'];
 $fecha =  $_POST['Fecha'];
 $horaInicial = $_POST['HoraInicial'];
 $horaFinal = $_POST['HoraFinal'];
+
+$valor = convertirFormato($precio);
 
 $horario = $horaInicial . " - " . $horaFinal;
 $NombreFinal = ucfirst($nombreTaller);
@@ -21,4 +23,7 @@ if ($validarTaller->num_rows == 1) {
     echo "<script>alert('¡Taller registrado con éxito!'); window.location='/registro_talleres.php'; </script>";
 }
 
+function convertirFormato($valor){
+    return str_replace(array("$", ".", ","), "", $valor);
+  }
 ?>

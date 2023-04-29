@@ -10,13 +10,15 @@ $tipoInscripcion = $_POST['SeleccionarServicio'];
 switch ($tipoInscripcion) {
     case '2':
         $idTaller =  $_POST['SeleccionarTaller'];
-        $valor = $_POST['ValorTaller'];
+        $precio = $_POST['ValorTaller'];
+        $valor = convertirFormato($precio);
         $tipo = "Ta";
         $idGrupo = "0";
         break;
     case '3':
         $idGrupo = $_POST['SeleccionarGrupo'];
-        $valor = $_POST['ValorGrupo'];
+        $precio = $_POST['ValorGrupo'];
+        $valor = convertirFormato($precio);
         $tipo = "Gr";
         $idTaller = "0";
         break;
@@ -41,5 +43,8 @@ if ($tipo == "Ta") {
     }
 }
 
+function convertirFormato($valor){
+    return str_replace(array("$", ".", ","), "", $valor);
+  }
 
 ?>

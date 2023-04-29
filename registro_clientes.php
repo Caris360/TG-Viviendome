@@ -32,7 +32,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
 
                                 <h3 style="font-family: Poppins-Bold;" class="mb-5 text-uppercase">Registrar Cliente</h3>
 
-                                <form method="POST" id="FormularioCliente">
+                                <form method="POST" action="config/register/registro_clientes_config.php" id="FormularioCliente">
                                     <div class="row">
                                         <div class="col-md-6 mb-4">
                                             <div class="form-outline">

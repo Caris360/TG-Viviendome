@@ -39,7 +39,7 @@
                         <a href="#" class="dropdown-item">Venta</a>
                     </div>
                 </div>
-                <a style="color: #000;" href="#" class="nav-item nav-link">Pagos</a>
+                <a style="color: #000;" href="/gestion_pagos.php" class="nav-item nav-link">Pagos</a>
                 <a style="color: #000;" href="#" class="nav-item nav-link">Reportes</a>
                 <a style="color: #000;" href="#" class="nav-item nav-link">Indicadores</a>
             </div>

@@ -4,8 +4,10 @@ require('/xampp/htdocs/ViviendomeCoaching/config/conexion_config.php');
 
 $grupo = $_POST['NombreGrupo'];
 $idAcademia = $_POST['Academia'];
-$valor = $_POST['ValorGrupo'];
+$precio = $_POST['ValorGrupo'];
 $nombre = ucfirst($grupo);
+$valor = convertirFormato($precio);
+
 $validarGrupo = mysqli_query($conexion, "SELECT * FROM grupo WHERE NOMBRE_GRUPO = '$nombre'");
 
 if ($validarGrupo->num_rows == 1) {
@@ -17,5 +19,9 @@ if ($validarGrupo->num_rows == 1) {
     $actualizarAcademiaH = mysqli_query($conexion, "UPDATE ACADEMIA_HISTORICO SET CANTIDAD_GRUPOS =(SELECT COUNT(*) FROM GRUPO WHERE ACADEMIA_ID ='$idAcademia') WHERE ID_ACADEMIA = '$idAcademia'");
     echo "<script>alert('¡Grupo registrado con éxito!'); window.location='/gestion_grupos.php'; </script>";
 }
+
+function convertirFormato($valor){
+    return str_replace(array("$", ".", ","), "", $valor);
+  }
 
 ?>

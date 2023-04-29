@@ -6,8 +6,8 @@ $idGrupo = $_POST['Grupo'];
 $date = $_POST['Fecha'];
 $fecha =  $_POST['Fecha'];
 $hora = $_POST['Hora'];
-$valor = $_POST['ValorClase'];
-
+$precio = $_POST['ValorClase'];
+$valor = convertirFormato($precio);
 $validarClase = mysqli_query($conexion, "SELECT * FROM clase WHERE FECHA_CLASE = '$fecha' and HORA = '$hora'");
 
 if ($validarClase->num_rows == 1) {
@@ -17,5 +17,10 @@ if ($validarClase->num_rows == 1) {
     $insertarH = mysqli_query($conexion, "INSERT INTO CLASE_HISTORICO (GRUPO_ID, FECHA_CLASE, HORA,VALOR) VALUES ('$idGrupo', '$fecha','$hora', '$valor')");
     echo "<script>alert('¡Clase registrada con éxito!'); window.location='/gestion_clases.php'; </script>";
 }
+
+
+function convertirFormato($valor){
+    return str_replace(array("$", ".", ","), "", $valor);
+  }
 
 ?>
