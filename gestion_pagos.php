@@ -39,51 +39,54 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                         </tr>
                                     </tbody>
                                 </table>
-                                <form action="" method="">
-                                    <div class="row" style="margin-top: 2%;">
-                                        <div class="col-md-4 mb-4">
-                                            <div class="form-outline">
-                                                <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre Cliente:</label>
-                                                <select id="seleccionarCliente" class="js-example-basic-single form-control form-control-lg">
-                                                    <option selected disabled>Seleccione uno</option>
-                                                    <?php
-                                                    include('config/conexion_config.php');
-                                                    $sql = mysqli_query($conexion, "SELECT I.IDENTIFICACION_CLIENTE, C.NOMBRE_PUBLICO FROM inscripciones I INNER JOIN CLIENTE C ON C.IDENTIFICACION_CLIENTE = I.IDENTIFICACION_CLIENTE AND ESTADO_INSCRIPCION = 'Debe' GROUP BY I.IDENTIFICACION_CLIENTE, C.NOMBRE_PUBLICO");
-                                                    while ($row = mysqli_fetch_array($sql)) {
-                                                    ?>
-                                                        <option value="<?php printf($row['IDENTIFICACION_CLIENTE']) ?>"><?php printf($row['NOMBRE_PUBLICO']) ?></option>
-                                                    <?php
-                                                    }
-                                                    ?>
-                                                </select>
-                                            </div>
+                                <div class="row" style="margin-top: 2%;">
+                                    <div class="col-md-3 mb-4">
+                                        <div class="form-outline">
+                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre Cliente:</label>
+                                            <select id="seleccionarCliente" class="js-example-basic-single form-control form-control-lg">
+                                                <option selected disabled>Seleccione uno</option>
+                                                <?php
+                                                include('config/conexion_config.php');
+                                                $sql = mysqli_query($conexion, "SELECT I.IDENTIFICACION_CLIENTE, C.NOMBRE_PUBLICO FROM inscripciones I INNER JOIN CLIENTE C ON C.IDENTIFICACION_CLIENTE = I.IDENTIFICACION_CLIENTE AND ESTADO_INSCRIPCION = 'Debe' GROUP BY I.IDENTIFICACION_CLIENTE, C.NOMBRE_PUBLICO");
+                                                while ($row = mysqli_fetch_array($sql)) {
+                                                ?>
+                                                    <option value="<?php printf($row['IDENTIFICACION_CLIENTE']) ?>"><?php printf($row['NOMBRE_PUBLICO']) ?></option>
+                                                <?php
+                                                }
+                                                ?>
+                                            </select>
                                         </div>
-                                        <div class="col-md-8 mb-4">
-                                            <div class="row">
-                                                <div class="col-md-6 mb-4">
-                                                    <div class="form-outline">
-                                                        <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Seleccione Tipo Inscripcion:</label>
-                                                        <select id="SeleccionarInscripcion" name="SeleccionarInscripcion" class="form-control form-control-lg" disabled>
-                                                            <option selected disabled>Seleccione uno</option>
-                                                            <option value="1">Taller</option>
-                                                            <option value="2">Grupo</option>
-                                                            <option value="3">Clase</option>
-                                                        </select>
-                                                    </div>
+                                    </div>
+                                    <div class="col-md-3 mb-4">
+                                        <div class="form-outline">
+                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example1n">Número Documento:</label>
+                                            <input type="text" readonly required id="Documento" name="Documento" class="form-control form-control-lg" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="row">
+                                            <div class="col-md-6 mb-4">
+                                                <div class="form-outline">
+                                                    <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Seleccione Tipo Servicio:</label>
+                                                    <select id="SeleccionarInscripcion" name="SeleccionarInscripcion" class="form-control form-control-lg" disabled>
+                                                        <option selected disabled>Seleccione uno</option>
+                                                        <option value="1">Taller</option>
+                                                        <option value="2">Grupo</option>
+                                                        <option value="3">Clase</option>
+                                                    </select>
                                                 </div>
-                                                <div class="col-md-6 mb-4">
-                                                    <div id="Servicios" name="Servicios" class="form-outline">
-                                                        
-                                                    </div>
-                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-4">
+                                                <div id="Servicios" name="Servicios" class="form-outline"></div>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="CuerpoFormulario" id="Div_1">
                                     <div class="d-flex justify-content-end pt-3">
-                                        <input style="font-family: Poppins-Bold;" type="reset" class="btn btn-light btn-lg" value="Eliminar Selección" />
-                                        <input style="font-family: Poppins-Bold;" type="submit" class="btn btn-primary btn-lg ms-2" value="Pagar" />
+                                        <button id="Pagar" onclick="CargarPago()" name="Pagar" data-toggle='modal' data-target='#Pagos' style="font-family: Poppins-Bold;" type="submit" class="btn btn-primary btn-lg ms-2 pago">Pagar</button>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -93,31 +96,48 @@ if (!isset($_SESSION['UsuarioActivo'])) {
         </div>
 
     </section>
-    <div class="modal fade" id="Eliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="Pagos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content" style="border-radius: 20px;">
 
                 <div class="modal-header">
-                    <h5 style="font-family: Poppins-Bold;" class="modal-title" id="exampleModalLabel">Eliminar Taller</h5>
+                    <h5 style="font-family: Poppins-Bold;" class="modal-title" id="exampleModalLabel">Realizar Pago</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form method="POST" action="config/delete/eliminar_taller_config.php" id="FormularioTaller">
+                <form method="POST" action="config/register/registro_pago_config.php" id="FormularioPago">
                     <div class="modal-body">
-                        <input type="hidden" required id="IDE" name="IDE" class="form-control form-control-lg" />
+                        <input type="hidden" required id="Documento" name="Documento" class="form-control form-control-lg" />
+                        <input type="hidden" required id="Servicio" name="Servicio" class="form-control form-control-lg" />
                         <div class="form-outline mb-4">
-                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre Taller:</label>
-                            <input type="text" disabled required id="NombreTallerE" name="NombreTallerE" class="form-control form-control-lg" />
+                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre Cliente:</label>
+                            <input type="text" readonly required id="NombreCliente" name="NombreCliente" class="form-control form-control-lg" />
                         </div>
                         <div class="form-outline mb-4">
-                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Valor Inscripción:</label>
-                            <input autocomplete="off" disabled type="text" placeholder="$0" data-type="currency" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" required id="ValorInscripcionE" name="ValorInscripcionE" class="form-control form-control-lg" />
+                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Tipo Servicio:</label>
+                            <input type="text" readonly required id="TipoServicio" name="TipoServicio" class="form-control form-control-lg" />
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Valor Original:</label>
+                            <input autocomplete="off" readonly type="text" placeholder="$0" data-type="currency" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" required id="ValorOriginal" name="ValorOriginal" class="form-control form-control-lg" />
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Método Pago:</label>
+                            <select id="MetodoPago" name="MetodoPago" class="form-control form-control-lg" required>
+                                <option selected disabled>Seleccione uno</option>
+                                <option value="Efectivo">Efectivo</option>
+                                <option value="Transferencia">Transferencia</option>
+                            </select>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Valor Pago:</label>
+                            <input autocomplete="off" type="text" placeholder="$0" data-type="currency" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" required id="ValorPago" name="ValorPago" class="form-control form-control-lg" />
                         </div>
                     </div>
                     <div class="modal-footer">
                         <input type="button" class="btn btn-secondary btn-lg ms-2" data-dismiss="modal" value="Cancelar" />
-                        <input type="submit" class="btn btn-danger btn-sm" name="enviar" value="Confirmar" />
+                        <input type="submit" class="btn btn-success btn-lg ms-2" value="Confirmar Pago" />
                     </div>
                 </form>
 
@@ -132,28 +152,44 @@ if (!isset($_SESSION['UsuarioActivo'])) {
     $(document).ready(function() {
         listar();
         CargarLista();
-        //$('.js-example-basic-single').select2();
+        CargarPago();
         $("#seleccionarCliente").change(function() {
+            var x = $('#seleccionarCliente').val();
+            $('#Documento').val(x);
             $("#SeleccionarInscripcion").removeAttr('disabled');
         });
         $("#SeleccionarInscripcion").change(function() {
             CargarLista();
         });
-        
-        function CargarLista() {
-            $.ajax({
-                type: 'POST',
-                url: 'config/listar_pagos_id_data.php',
-                data: {
-                    'IDCliente': $('#seleccionarCliente').val(),
-                    'TipoInscripcion': $('#SeleccionarInscripcion').val()
-                },
-                success: function(r) {
-                    $('#Servicios').html(r);
-                }
-            });
-        }
+
     });
+
+    function CargarLista() {
+        $.ajax({
+            type: 'POST',
+            url: 'config/listar_pagos_id_data.php',
+            data: {
+                'IDCliente': $('#seleccionarCliente').val(),
+                'TipoInscripcion': $('#SeleccionarInscripcion').val()
+            },
+            success: function(r) {
+                $('#Servicios').html(r);
+                $(".CuerpoFormulario").hide();
+                $("#SeleccionarServicio").change(function() {
+                    $(".CuerpoFormulario").hide();
+                    $("#Div_1").show();
+                });
+            }
+        });
+    }
+
+    function CargarPago() {
+        $('#NombreCliente').val($("#seleccionarCliente option:selected").text());
+        $('#TipoServicio').val($("#SeleccionarInscripcion option:selected").text());
+        $('#ValorOriginal').val($("#SeleccionarServicio option:selected").text());
+        $('#Documento').val($("#seleccionarCliente").val());
+        $('#Servicio').val($("#SeleccionarServicio").val());
+    }
 
     var listar = function() {
         var table = $('#TablaPagos').DataTable({
@@ -202,7 +238,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
         });
     }
 
-    var obtener_data_eliminar = function(tbody, table) {
+    var obtener_data_pago = function(tbody, table) {
         $(tbody).on("click", "button.eliminar", function() {
             var data = table.row($(this).parents("tr")).data();
             var id = $("#IDE").val(data.ID_TALLER),
@@ -211,4 +247,34 @@ if (!isset($_SESSION['UsuarioActivo'])) {
             console.log(data);
         });
     }
+
+    /* paypal.Buttons({
+         style: {
+             color: 'blue',
+             shape: 'pill',
+             label: 'pay'
+         },
+         createOrder: function(data, actions) {
+             return actions.order.create({
+                 purchase_units: [{
+                     amount: {
+                         value: $("#SeleccionarServicio option:selected").text()
+                     }
+                 }]
+             });
+         },
+
+         onApprove: function(data, actions) {
+             return actions.order.capture().then(function(orderData) {
+                 console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                 var transaction = orderData.purchase_units[0].payments.captures[0];
+                 alert('¡GRACIAS POR TU COMPRA!');
+                 window.location.href = '/gestion_pagos.php';
+                 const element = document.getElementById('paypal-button-container');
+             });
+
+         }
+
+
+     }).render('#paypal-button-container');*/
 </script>

@@ -13,7 +13,7 @@
     <!--Datatable plugin CSS file -->
     <link rel="stylesheet" href="/css/buttons.dataTables.min.css" />
     <link rel="stylesheet" href="/css/jquery.dataTables.min.css" />
-
+    <script src="https://www.paypal.com/sdk/js?client-id=AdIiK454e_3O5TmXG5Iwwp1at0nkNjCsJ-e83QQW2erKzwPQzOLFRl1ZJOjNHwcYEdsordr5mxdhC3Zr"></script>
     <!--jQuery library file -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
