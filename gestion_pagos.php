@@ -29,7 +29,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                             <th style="text-align: center" scope="col">TALLER</th>
                                             <th style="text-align: center" scope="col">VALOR INSCRIPCIÓN</th>
                                             <th style="text-align: center" scope="col">VALOR CLASES</th>
-                                            <th style="border-top-right-radius: 20px; text-align: center" scope="col">ESTADO</th>
+                                            <th style="border-top-right-radius: 20px; text-align: center" scope="col">DETALLE</th>
                                         </tr>
                                     </thead>
 
@@ -70,9 +70,9 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                                     <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Seleccione Tipo Servicio:</label>
                                                     <select id="SeleccionarInscripcion" name="SeleccionarInscripcion" class="form-control form-control-lg" disabled>
                                                         <option selected disabled>Seleccione uno</option>
-                                                        <option value="1">Taller</option>
-                                                        <option value="2">Grupo</option>
-                                                        <option value="3">Clase</option>
+                                                        <option value="Taller">Taller</option>
+                                                        <option value="Grupo">Grupo</option>
+                                                        <option value="Clase">Clase</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -108,7 +108,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                 </div>
                 <form method="POST" action="config/register/registro_pago_config.php" id="FormularioPago">
                     <div class="modal-body">
-                        <input type="hidden" required id="Documento" name="Documento" class="form-control form-control-lg" />
+                        <input type="hidden" required id="IDCliente" name="IDCliente" class="form-control form-control-lg" />
                         <input type="hidden" required id="Servicio" name="Servicio" class="form-control form-control-lg" />
                         <div class="form-outline mb-4">
                             <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre Cliente:</label>
@@ -187,7 +187,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
         $('#NombreCliente').val($("#seleccionarCliente option:selected").text());
         $('#TipoServicio').val($("#SeleccionarInscripcion option:selected").text());
         $('#ValorOriginal').val($("#SeleccionarServicio option:selected").text());
-        $('#Documento').val($("#seleccionarCliente").val());
+        $('#IDCliente').val($("#seleccionarCliente").val());
         $('#Servicio').val($("#SeleccionarServicio").val());
     }
 
@@ -213,7 +213,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                     "data": "VALOR_CLASES"
                 },
                 {
-                    "data": "ESTADO_INSCRIPCION"
+                    "defaultContent": "<button type='button' name='editar' id='editar' class='editar btn btn-info' data-toggle='modal' data-target='#Actualizar'><i class='fa fa-file-text'></i> Ver Más</button>"
                 }
             ],
             responsive: true,
@@ -248,33 +248,4 @@ if (!isset($_SESSION['UsuarioActivo'])) {
         });
     }
 
-    /* paypal.Buttons({
-         style: {
-             color: 'blue',
-             shape: 'pill',
-             label: 'pay'
-         },
-         createOrder: function(data, actions) {
-             return actions.order.create({
-                 purchase_units: [{
-                     amount: {
-                         value: $("#SeleccionarServicio option:selected").text()
-                     }
-                 }]
-             });
-         },
-
-         onApprove: function(data, actions) {
-             return actions.order.capture().then(function(orderData) {
-                 console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-                 var transaction = orderData.purchase_units[0].payments.captures[0];
-                 alert('¡GRACIAS POR TU COMPRA!');
-                 window.location.href = '/gestion_pagos.php';
-                 const element = document.getElementById('paypal-button-container');
-             });
-
-         }
-
-
-     }).render('#paypal-button-container');*/
 </script>

@@ -3025,12 +3025,14 @@ fieldset:disabled a.btn {
     color: #fff;
     background-color: #28a745;
     border-color: #28a745;
+    font-family: Poppins-Bold;
 }
 
 .btn-success:hover {
     color: #fff;
     background-color: #218838;
     border-color: #1e7e34;
+    font-family: Poppins-Bold;
 }
 
 .btn-success:focus,
