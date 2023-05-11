@@ -1,5 +1,6 @@
 <?php
 
+include('/xampp/htdocs/ViviendomeCoaching/config/functions/funciones.php');
 require('/xampp/htdocs/ViviendomeCoaching/config/conexion_config.php');
 
 $idGrupo = $_POST['Grupo'];
@@ -17,10 +18,5 @@ if ($validarClase->num_rows == 1) {
     $insertarH = mysqli_query($conexion, "INSERT INTO CLASE_HISTORICO (GRUPO_ID, FECHA_CLASE, HORA,VALOR) VALUES ('$idGrupo', '$fecha','$hora', '$valor')");
     echo "<script>alert('¡Clase registrada con éxito!'); window.location='/gestion_clases.php'; </script>";
 }
-
-
-function convertirFormato($valor){
-    return str_replace(array("$", ".", ","), "", $valor);
-  }
 
 ?>

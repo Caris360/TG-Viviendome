@@ -31,7 +31,7 @@ function ActualizarInscripcion($EstadoInscripcion, $IdInscripcion, $IdCliente)
     return $sentencia->execute();
 }
 
-function ActualizarPagoClase( $IdInscripcion, $IdCliente, $ValorUltimoPago , $fechaUltimoPago, $ValorPendiente, $ValorCambio)
+function ActualizarPago( $IdInscripcion, $IdCliente, $ValorUltimoPago , $fechaUltimoPago, $ValorPendiente, $ValorCambio)
 {
 
     include('/xampp/htdocs/ViviendomeCoaching/config/conexion_config.php');

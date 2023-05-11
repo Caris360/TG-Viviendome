@@ -1,5 +1,6 @@
 <?php
 
+include('/xampp/htdocs/ViviendomeCoaching/config/functions/funciones.php');
 require('/xampp/htdocs/ViviendomeCoaching/config/conexion_config.php');
 
 $nombreTaller = $_POST['NombreTaller'];
@@ -23,7 +24,4 @@ if ($validarTaller->num_rows == 1) {
     echo "<script>alert('¡Taller registrado con éxito!'); window.location='/registro_talleres.php'; </script>";
 }
 
-function convertirFormato($valor){
-    return str_replace(array("$", ".", ","), "", $valor);
-  }
 ?>

@@ -161,6 +161,9 @@ if (!isset($_SESSION['UsuarioActivo'])) {
             var x = $('#seleccionarCliente').val();
             $('#Documento').val(x);
             $("#SeleccionarServicio").removeAttr('disabled');
+            $("#SeleccionarServicio").val('1');
+            $("#Div_2").hide();
+            $("#Div_3").hide();
         });
         $("#SeleccionarTaller").change(function() {
             var valor = $("#SeleccionarTaller").val();

@@ -1,5 +1,6 @@
 <?php
 
+include('/xampp/htdocs/ViviendomeCoaching/config/functions/funciones.php');
 require('/xampp/htdocs/ViviendomeCoaching/config/conexion_config.php');
 
 $grupo = $_POST['NombreGrupo'];
@@ -19,9 +20,5 @@ if ($validarGrupo->num_rows == 1) {
     $actualizarAcademiaH = mysqli_query($conexion, "UPDATE ACADEMIA_HISTORICO SET CANTIDAD_GRUPOS =(SELECT COUNT(*) FROM GRUPO WHERE ACADEMIA_ID ='$idAcademia') WHERE ID_ACADEMIA = '$idAcademia'");
     echo "<script>alert('¡Grupo registrado con éxito!'); window.location='/gestion_grupos.php'; </script>";
 }
-
-function convertirFormato($valor){
-    return str_replace(array("$", ".", ","), "", $valor);
-  }
 
 ?>

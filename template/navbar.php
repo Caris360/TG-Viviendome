@@ -31,6 +31,7 @@
                     </div>
                 </div>
                 <a style="color: #000;" href="/registro_inscripciones.php" class="nav-item nav-link">Inscripciones</a>
+                <a style="color: #000;" href="/gestion_pagos.php" class="nav-item nav-link">Pagos</a>
                 <div class="nav-item dropdown">
                     <a style="color: #000;" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Repisa</a>
                     <div class="dropdown-menu">
@@ -38,8 +39,7 @@
                         <a href="#" class="dropdown-item">Listado</a>
                         <a href="#" class="dropdown-item">Venta</a>
                     </div>
-                </div>
-                <a style="color: #000;" href="/gestion_pagos.php" class="nav-item nav-link">Pagos</a>
+                </div>               
                 <a style="color: #000;" href="#" class="nav-item nav-link">Reportes</a>
                 <a style="color: #000;" href="#" class="nav-item nav-link">Indicadores</a>
             </div>

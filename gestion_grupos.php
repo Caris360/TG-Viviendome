@@ -77,6 +77,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                         <th style="border-top-left-radius: 20px;" scope="col">NOMBRE GRUPO</th>
                                         <th scope="col">ACADEMIA</th>
                                         <th scope="col">VALOR</th>
+                                        <th scope="col">VALOR TOTAL</th>
                                         <th style="border-top-right-radius: 20px;" scope="col">ACCIONES</th>
                                     </tr>
                                 </thead>
@@ -178,6 +179,9 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                 },
                 {
                     "data": "VALOR_INSCRIPCION"
+                },
+                {
+                    "data": "VALOR_TOTAL"
                 },
                 {
                     "defaultContent": "<button type='button' name='editar' id='editar' class='editar btn btn-success' data-toggle='modal' data-target='#Actualizar'><i class='fa fa-pencil-square-o'></i></button>&nbsp;&nbsp;<button type='button' name='eliminar' id='eliminar' class='eliminar btn btn-danger' data-toggle='modal' data-target='#Eliminar'><i class='fa fa-times'></i></button>"
