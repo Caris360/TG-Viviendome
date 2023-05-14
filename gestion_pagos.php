@@ -129,7 +129,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                     "data": "VALOR_PENDIENTE"
                 },
                 {
-                    "defaultContent": "<button type='button' name='editar' id='editar' class='detalles btn btn-warning' style='font-family: Poppins-Medium;'  data-toggle='modal' data-target='#Detalles'><i class='fa fa-tags'></i> Crear Pago</button>"
+                    "defaultContent": "<button type='button' name='editar' id='editar' class='detalles btn btn-warning' style='font-family: Poppins-Medium;'  data-toggle='modal' data-target='#Detalles'><i class='fa fa-tags'></i> Registrar Pago</button>"
                 }
             ],
             responsive: true,

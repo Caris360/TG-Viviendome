@@ -9,7 +9,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
 <html>
 
 <?php include('template/head.php') ?>
-<title>Registro Clases</title>
+<title>Gestión Clases</title>
 
 <body>
 

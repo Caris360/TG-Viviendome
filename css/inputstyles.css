@@ -1,0 +1,70 @@
+@font-face {
+    font-family: Poppins-Regular;
+    src: url('../fonts/poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: Poppins-Bold;
+    src: url('../fonts/poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
+    font-family: Poppins-Medium;
+    src: url('../fonts/poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
+    font-family: Montserrat-Bold;
+    src: url('../fonts/montserrat/Montserrat-Bold.ttf');
+}
+
+
+.fancy-file{
+    display: none;
+}
+.fancy-file + label{
+    display: flex;
+    flex: 1;
+}
+.fancy-file__fancy-file-name,
+.fancy-file__fancy-file-button{
+    padding: 5px 10px;
+}
+
+.fancy-file__fancy-file-name{
+    background: #EEE;
+    border: 1px solid #EEE;
+    flex: 1;
+    border-radius: 20px 0 0 20px;
+
+}
+
+.fancy-file__fancy-file-name span{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 0px;
+    display: block;
+}
+
+.fancy-file__fancy-file-button{
+    background: #d6d9db url(/images/carpeta.png) 4px center/25px no-repeat;
+    border: 1px solid #e9ecef;
+    color: black;
+    white-space: nowrap;
+    border-radius: 0 4px 4px 0;
+    padding-left: 33px;
+    cursor: pointer;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    font-family: Poppins-Medium;
+}
+
+.fancy-file.red + label > .fancy-file__fancy-file-button{
+    background-color: #D9534F;
+    border-color:#D64641;
+}
+.fancy-file.green + label > .fancy-file__fancy-file-button{
+    background-color: #5CB85C;
+    border-color:#4FB04F;
+}

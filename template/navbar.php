@@ -35,8 +35,8 @@
                 <div class="nav-item dropdown">
                     <a style="color: #000;" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Repisa</a>
                     <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item">Productos</a>
-                        <a href="#" class="dropdown-item">Listado</a>
+                        <a href="/registro_productos.php" class="dropdown-item">Productos</a>
+                        <a href="/listar_productos.php" class="dropdown-item">Listado</a>
                         <a href="#" class="dropdown-item">Venta</a>
                     </div>
                 </div>               

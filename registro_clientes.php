@@ -38,11 +38,10 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                             <div class="form-outline">
                                                 <label style="font-family: Poppins-Bold;" style="font-family: Poppins-Bold;" class="form-label" for="form3Example1m">Tipo Documento:</label>
                                                 <select required style="font-family: Poppins-Medium;" id="TipoDocumento" name="TipoDocumento" class="form-control form-control-lg">
-                                                    <option value="1" selected>Seleccione uno...</option>
+                                                    <option value="" disabled selected>Seleccione uno...</option>
                                                     <option value="2">Cédula Ciudadanía</option>
                                                     <option value="3">Cédula Extranjería</option>
                                                     <option value="4">Tarjeta de Identidad</option>
-                                                    <option value="5">Pasaporte</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -56,7 +55,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
 
                                     <div class="form-outline mb-4">
                                         <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre:</label>
-                                        <input style="text-transform: capitalize;" type="text" required id="NombreCliente" name="NombreCliente" class="form-control form-control-lg" />
+                                        <input style="text-transform: capitalize;" type="text" required id="NombreCliente" onkeypress="return soloLetras(event)" onblur="limpia()" name="NombreCliente" class="form-control form-control-lg" />
                                     </div>
 
                                     <div class="form-outline mb-4">
@@ -76,7 +75,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
 
                                     <div class="d-flex justify-content-end pt-3">
                                         <input style="font-family: Poppins-Bold;" type="reset" class="btn btn-light btn-lg" value="Limpiar Formulario" />
-                                        <button style="font-family: Poppins-Bold;"  class="btn btn-primary btn-lg ms-2">Guardar</button>
+                                        <button style="font-family: Poppins-Bold;" class="btn btn-primary btn-lg ms-2">Guardar</button>
                                     </div>
                                 </form>
 
@@ -93,25 +92,3 @@ if (!isset($_SESSION['UsuarioActivo'])) {
 </body>
 
 </html>
-<!--<script>
-    function insertar() {
-        var datos = $("#FormularioCliente").serialize();
-
-        $.ajax({
-            data: datos,
-            type: 'POST',
-            url: '/config/register/registro_clientes_config.php',
-            success: function(data) {
-                if (data !== null) {
-                    alert('¡Error! Ya existe un cliente con este documento.')
-                    setTimeout(200000);
-                } else {
-                    alert('Cliente Registrado')
-                    setTimeout(200000);
-
-                }
-            }
-
-        });
-    }
-</script>-->

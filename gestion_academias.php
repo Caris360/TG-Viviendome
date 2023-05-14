@@ -9,7 +9,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
 <html>
 
 <?php include('template/head.php') ?>
-<title>Registro Academias</title>
+<title>Gestión Academias</title>
 
 <body>
 
@@ -29,7 +29,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
 
                                     <div class="form-outline mb-4">
                                         <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre Academia:</label>
-                                        <input type="text" required id="NombreAcademia" name="NombreAcademia" class="form-control form-control-lg" />
+                                        <input type="text" style="text-transform: capitalize;" required id="NombreAcademia" name="NombreAcademia" class="form-control form-control-lg" />
                                     </div>
                                     <div class="form-outline mb-4">
                                         <img src="images/Academia.jpg" style="width: 68vh; height: 40vh; border-radius: 20px; ">
