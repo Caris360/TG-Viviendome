@@ -31,7 +31,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                             <div class="form-outline">
                                                 <label style="font-family: Poppins-Bold;" style="font-family: Poppins-Bold;" class="form-label" for="form3Example1m">Academia:</label>
                                                 <select required style="font-family: Poppins-Medium;" id="Academia" name="Academia" class="selectpicker form-control form-control-lg">
-                                                    <option disabled selected>Seleccione una</option>
+                                                    <option value="" disabled selected>Seleccione una</option>
                                                     <?php
                                                     include('config/conexion_config.php');
                                                     $sql = mysqli_query($conexion, "SELECT * FROM academia");
@@ -63,7 +63,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
 
                                     <div class="d-flex justify-content-end pt-3">
                                         <input style="font-family: Poppins-Bold;" type="reset" class="btn btn-light btn-lg" value="Limpiar Formulario" />
-                                        <input style="font-family: Poppins-Bold;" type="submit" class="btn btn-primary btn-lg ms-2" value="Guardar" />
+                                        <input type="submit" style="font-family: Poppins-Bold;" class="btn btn-success btn-sm" value="Guardar" />
                                     </div>
                                 </form>
                             </div>

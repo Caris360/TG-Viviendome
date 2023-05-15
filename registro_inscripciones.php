@@ -33,8 +33,8 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                         <div class="col-md-4 mb-4">
                                             <div class="form-outline">
                                                 <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre Cliente:</label>
-                                                <select id="seleccionarCliente" class="js-example-basic-single form-control form-control-lg">
-                                                    <option selected disabled>Seleccione uno</option>
+                                                <select required id="seleccionarCliente" class="js-example-basic-single form-control form-control-lg">
+                                                    <option value="" selected disabled>Seleccione uno</option>
                                                     <?php
                                                     include('config/conexion_config.php');
                                                     $sql = mysqli_query($conexion, "SELECT * FROM cliente ORDER BY NOMBRE_PUBLICO ASC");
@@ -58,8 +58,8 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                                 <div class="col-md-6 mb-4">
                                                     <div class="form-outline">
                                                         <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Selecciona el servicio para inscribir:</label>
-                                                        <select id="SeleccionarServicio" name="SeleccionarServicio" class="form-control form-control-lg" disabled>
-                                                            <option selected disabled value="1">Seleccione uno</option>
+                                                        <select required id="SeleccionarServicio" name="SeleccionarServicio" class="form-control form-control-lg" disabled>
+                                                            <option value="1" selected disabled>Seleccione uno</option>
                                                             <option value="2">Taller</option>
                                                             <option value="3">Grupo</option>
                                                         </select>
@@ -75,8 +75,8 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                                     <div class="col-md-6 mb-4">
                                                         <div class="form-outline">
                                                             <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre:</label>
-                                                            <select id="SeleccionarTaller" name="SeleccionarTaller" class="form-control form-control-lg">
-                                                                <option selected disabled>Seleccione un taller</option>
+                                                            <select required id="SeleccionarTaller" name="SeleccionarTaller" class="form-control form-control-lg">
+                                                                <option value="" selected disabled>Seleccione un taller</option>
                                                                 <?php
                                                                 include('config/conexion_config.php');
                                                                 $sql = mysqli_query($conexion, "SELECT * FROM taller");
@@ -110,8 +110,8 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                                     <div class="col-md-6 mb-4">
                                                         <div class="form-outline">
                                                             <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre:</label>
-                                                            <select id="SeleccionarGrupo" name="SeleccionarGrupo" class="form-control form-control-lg">
-                                                                <option selected disabled>Seleccione un grupo</option>
+                                                            <select required id="SeleccionarGrupo" name="SeleccionarGrupo" class="form-control form-control-lg">
+                                                                <option value="" selected disabled>Seleccione un grupo</option>
                                                                 <?php
                                                                 include('config/conexion_config.php');
                                                                 $sql = mysqli_query($conexion, "SELECT * FROM grupo");
@@ -165,6 +165,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
             $("#Div_2").hide();
             $("#Div_3").hide();
         });
+
         $("#SeleccionarTaller").change(function() {
             var valor = $("#SeleccionarTaller").val();
             $.get("config/precios_taller_data.php", {
@@ -173,6 +174,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                 document.getElementById("ValorTaller").value = data;
             });
         });
+
         $("#SeleccionarGrupo").change(function() {
             var valor = $("#SeleccionarGrupo").val();
             $.get("config/precios_grupo_data.php", {
@@ -187,5 +189,6 @@ if (!isset($_SESSION['UsuarioActivo'])) {
             $(".CuerpoFormulario").hide();
             $("#Div_" + $(this).val()).show();
         });
+
     });
 </script>

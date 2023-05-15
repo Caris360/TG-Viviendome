@@ -45,7 +45,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                                 <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Fecha:</label>
                                                 <span class="datepicker-toggle">
                                                     <span class="datepicker-toggle-button"></span>
-                                                    <input id="Fecha" name="Fecha" min="<?= date('Y-m-d') ?>" type="date" class="datepicker-input form-control form-control-lg">
+                                                    <input required id="Fecha" name="Fecha" min="<?= date('Y-m-d') ?>" type="date" class="datepicker-input form-control form-control-lg">
                                                 </span>
                                             </div>
                                         </div>
@@ -54,13 +54,13 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                                 <div class="col-md-6 mb-4">
                                                     <div class="form-outline">
                                                         <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Hora Inicial:</label>
-                                                        <input id="HoraInicial" name="HoraInicial" readonly placeholder="00:00" type="text" class="timepicker form-control form-control-lg">
+                                                        <input required id="HoraInicial" name="HoraInicial" readonly placeholder="00:00" type="text" class="timepicker form-control form-control-lg">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 mb-4">
                                                     <div class="form-outline">
                                                         <label style="font-family: Poppins-Bold;" style="font-family: Poppins-Bold;" class="form-label" for="form3Example1m">Hora Final:</label>
-                                                        <input id="HoraFinal" name="HoraFinal" readonly placeholder="00:00" type="text" class="timepicker form-control form-control-lg">
+                                                        <input required id="HoraFinal" name="HoraFinal" readonly placeholder="00:00" type="text" class="timepicker form-control form-control-lg">
                                                     </div>
                                                 </div>
                                             </div>

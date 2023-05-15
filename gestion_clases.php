@@ -30,7 +30,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                     <div class="form-outline mb-4">
                                         <label style="font-family: Poppins-Bold;" style="font-family: Poppins-Bold;" class="form-label" for="form3Example1m">Grupo:</label>
                                         <select required style="font-family: Poppins-Medium;" id="Grupo" name="Grupo" class="selectpicker form-control form-control-lg">
-                                            <option disabled selected>Seleccione uno</option>
+                                            <option value="" disabled selected>Seleccione uno</option>
                                             <?php
                                             include('config/conexion_config.php');
                                             $sql = mysqli_query($conexion, "SELECT * FROM grupo");
@@ -51,7 +51,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                                 <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Fecha:</label>
                                                 <span class="datepicker-toggle">
                                                     <span class="datepicker-toggle-button"></span>
-                                                    <input id="Fecha" name="Fecha" min="<?= date('Y-m-d') ?>" type="date" class="datepicker-input form-control form-control-lg">
+                                                    <input required id="Fecha" name="Fecha" min="<?= date('Y-m-d') ?>" type="date" class="datepicker-input form-control form-control-lg">
                                                 </span>
                                             </div>
                                         </div>
@@ -59,7 +59,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                             <div class="form-outline">
                                                 <label style="font-family: Poppins-Bold;" style="font-family: Poppins-Bold;" class="form-label" for="form3Example1m">Hora:</label>
                                                 <select required style="font-family: Poppins-Medium;" id="Hora" name="Hora" class="selectpicker form-control form-control-lg">
-                                                    <option disabled selected>Seleccione una</option>
+                                                    <option value="" disabled selected>Seleccione una</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -258,8 +258,8 @@ if (!isset($_SESSION['UsuarioActivo'])) {
             },
             Buttons: ['copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5']
         });
-        obtener_data_editar("#TablaGrupo tbody", table);
-        obtener_data_eliminar("#TablaGrupo tbody", table);
+        obtener_data_editar("#TablaGrupos tbody", table);
+        obtener_data_eliminar("#TablaGrupos tbody", table);
 
     }
 
