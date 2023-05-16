@@ -3,7 +3,8 @@
 include('/xampp/htdocs/ViviendomeCoaching/config/functions/funciones.php');
 require('/xampp/htdocs/ViviendomeCoaching/config/conexion_config.php');
 
-$nombreProducto = $_POST['NombreProducto'];
+$producto = $_POST['NombreProducto'];
+$nombreProducto = ucfirst($producto);
 $valorUnitario = $_POST['ValorUnitario'];
 $stock =  $_POST['Stock'];
 $complemento = $_POST['Complemento'];

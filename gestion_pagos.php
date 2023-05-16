@@ -167,7 +167,10 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                 documento = $("#DocumentoCliente").val(data.IDENTIFICACION_CLIENTE),
                 tipoServicion = $("#TipoServicioDetalle").val(servicio),
                 valor = $("#ValorOriginalDetalle").val(data.VALOR_INSCRIPCION),
-                valorDeuda = $("#ValorDeuda").val(data.VALOR_PENDIENTE)
+                valorDeuda = $("#ValorDeuda").val(data.VALOR_PENDIENTE);
+            if (valorDeuda == "...") {
+                valorDeuda = 0;
+            }
             console.log(data);
         });
     }

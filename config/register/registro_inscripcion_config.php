@@ -1,8 +1,10 @@
 <?php
 
 require('/xampp/htdocs/ViviendomeCoaching/config/conexion_config.php');
+
 setlocale(LC_ALL, 'es_CO');
 date_default_timezone_set('America/Bogota');
+
 $idCliente = $_POST['Documento'];
 $fechaInscripcion = date('Y-m-d');
 $tipoInscripcion = $_POST['SeleccionarServicio'];
@@ -21,6 +23,9 @@ switch ($tipoInscripcion) {
         $valor = convertirFormato($precio);
         $tipo = "Gr";
         $idTaller = "0";
+        break;
+    default:
+    echo "<script>alert('¡Selecciona la totalidad de campos!'); window.location='/registro_inscripciones.php'; </script>";
         break;
 }
 if ($tipo == "Gr") {
@@ -46,5 +51,3 @@ if ($tipo == "Ta") {
 function convertirFormato($valor){
     return str_replace(array("$", ".", ","), "", $valor);
   }
-
-?>

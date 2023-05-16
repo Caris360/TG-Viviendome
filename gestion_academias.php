@@ -21,9 +21,9 @@ if (!isset($_SESSION['UsuarioActivo'])) {
             <div class="row">
                 <div class="card card-registration my-2" style=" border-radius: 20px;">
                     <div class="row g-0">
-
                         <div class="col-xl-6 d-none d-sm-block" style="height: 82vh; border-radius: 20px;">
                             <div class="card-body p-md-5 text-black">
+
                                 <h3 style="font-family: Poppins-Bold;" class="mb-5 text-uppercase text-center">Registrar Academia</h3>
                                 <form method="POST" action="config/register/registro_academia_config.php" id="FormularioAcademia">
 
@@ -31,22 +31,24 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                         <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre Academia:</label>
                                         <input type="text" style="text-transform: capitalize;" required id="NombreAcademia" name="NombreAcademia" class="form-control form-control-lg" />
                                     </div>
+
                                     <div class="form-outline mb-4">
                                         <img src="images/Academia.jpg" style="width: 68vh; height: 40vh; border-radius: 20px; ">
                                     </div>
-
 
                                     <div class="d-flex justify-content-end pt-3">
                                         <input style="font-family: Poppins-Bold;" type="reset" class="btn btn-light btn-lg" value="Limpiar Formulario" />
                                         <input style="font-family: Poppins-Bold;" type="submit" class="btn btn-primary btn-lg ms-2" value="Guardar" />
                                     </div>
                                 </form>
+
                             </div>
                         </div>
 
                         <div class="col-xl-6" style=" margin-top: 2%; ">
 
                             <table class="table" width="100%" id="TablaAcademia" style="box-shadow: 2px 2px 2px 2px lightgray;">
+                                
                                 <thead class="table-dark" style="font-family: Poppins-Bold;">
                                     <tr>
                                         <th style="border-top-left-radius: 20px;" scope="col">NOMBRE ACADEMIA</th>
@@ -149,7 +151,6 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                 {
                     "defaultContent": "<button type='button' name='editar' id='editar' class='editar btn btn-success' data-toggle='modal' data-target='#Actualizar'><i class='fa fa-pencil-square-o'></i></button>&nbsp;&nbsp;<button type='button' name='eliminar' id='eliminar' class='eliminar btn btn-danger' data-toggle='modal' data-target='#Eliminar'><i class='fa fa-times'></i></button>"
                 }
-
             ],
             responsive: true,
             'pageLength': 5,
@@ -172,7 +173,6 @@ if (!isset($_SESSION['UsuarioActivo'])) {
         });
         obtener_data_editar("#TablaAcademia tbody", table);
         obtener_data_eliminar("#TablaAcademia tbody", table);
-
     }
 
     var obtener_data_editar = function(tbody, table) {

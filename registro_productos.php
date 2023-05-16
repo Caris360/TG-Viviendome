@@ -29,7 +29,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                 <form enctype="multipart/form-data" method="POST" action="config/register/registro_producto_config.php" id="FormularioProducto">
                                     <div class="form-outline mb-4">
                                         <label style="font-family: Poppins-Bold;" style="font-family: Poppins-Bold;" class="form-label" for="form3Example1m">Producto:</label>
-                                        <input autocomplete="off" type="text" style="text-transform: capitalize;" required id="NombreProducto" name="NombreProducto" class="form-control form-control-lg" />
+                                        <input autocomplete="off" type="text" required id="NombreProducto" name="NombreProducto" class="form-control form-control-lg" />
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6 mb-4">
@@ -51,7 +51,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                     </div>
                                     <div class="form-outline mb-4">
                                         <label style="font-family: Poppins-Bold;" style="font-family: Poppins-Bold;" class="form-label" for="form3Example1m">Imagen Producto:</label>
-                                        <input type="file" class='fancy-file form-control-lg' id="Imagen" name="Imagen" accept="image/*" multiple />
+                                        <input type="file" required class='fancy-file form-control-lg' id="Imagen" name="Imagen" accept="image/*" multiple />
                                     </div>
                                     <div class="d-flex justify-content-end pt-3">
                                         <input style="font-family: Poppins-Bold;" type="reset" class="btn btn-light btn-lg" value="Limpiar Formulario" />

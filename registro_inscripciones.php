@@ -27,14 +27,14 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                             <div class="card-body p-md-5 text-black">
                                 <h3 style="font-family: Poppins-Bold;" class="mb-5 text-uppercase">Realizar Inscripción</h3>
 
-                                <form method="POST" action="config/register/registro_inscripcion_config.php" id="FormularioTaller">
+                                <form method="POST" action="config/register/registro_inscripcion_config.php" id="FormularioInscripciones">
 
                                     <div class="row">
                                         <div class="col-md-4 mb-4">
                                             <div class="form-outline">
                                                 <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre Cliente:</label>
                                                 <select required id="seleccionarCliente" class="js-example-basic-single form-control form-control-lg">
-                                                    <option value="" selected disabled>Seleccione uno</option>
+                                                    <option selected disabled>Seleccione uno</option>
                                                     <?php
                                                     include('config/conexion_config.php');
                                                     $sql = mysqli_query($conexion, "SELECT * FROM cliente ORDER BY NOMBRE_PUBLICO ASC");
@@ -59,7 +59,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                                     <div class="form-outline">
                                                         <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Selecciona el servicio para inscribir:</label>
                                                         <select required id="SeleccionarServicio" name="SeleccionarServicio" class="form-control form-control-lg" disabled>
-                                                            <option value="1" selected disabled>Seleccione uno</option>
+                                                            <option selected disabled>Seleccione uno</option>
                                                             <option value="2">Taller</option>
                                                             <option value="3">Grupo</option>
                                                         </select>
@@ -76,7 +76,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                                         <div class="form-outline">
                                                             <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre:</label>
                                                             <select required id="SeleccionarTaller" name="SeleccionarTaller" class="form-control form-control-lg">
-                                                                <option value="" selected disabled>Seleccione un taller</option>
+                                                                <option selected disabled>Seleccione un taller</option>
                                                                 <?php
                                                                 include('config/conexion_config.php');
                                                                 $sql = mysqli_query($conexion, "SELECT * FROM taller");
@@ -99,10 +99,11 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-end pt-3">
-                                            <input style="font-family: Poppins-Bold;" type="reset" class="btn btn-light btn-lg" value="Limpiar Formulario" />
+                                            <a style="font-family: Poppins-Bold;" href="/registro_inscripciones.php" type="reset" class="btn btn-light btn-lg" value="Limpiar Formulario">Limpiar Formulario</a>
                                             <input style="font-family: Poppins-Bold;" type="submit" class="btn btn-primary btn-lg ms-2" value="Guardar" />
                                         </div>
                                     </div>
+
                                     <div class="CuerpoFormulario" id="Div_3">
                                         <div class="row">
                                             <div class="col-md-12 mb-4">
@@ -111,7 +112,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                                         <div class="form-outline">
                                                             <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre:</label>
                                                             <select required id="SeleccionarGrupo" name="SeleccionarGrupo" class="form-control form-control-lg">
-                                                                <option value="" selected disabled>Seleccione un grupo</option>
+                                                                <option selected disabled>Seleccione un grupo</option>
                                                                 <?php
                                                                 include('config/conexion_config.php');
                                                                 $sql = mysqli_query($conexion, "SELECT * FROM grupo");
@@ -134,7 +135,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-end pt-3">
-                                            <input style="font-family: Poppins-Bold;" type="reset" class="btn btn-light btn-lg" value="Limpiar Formulario" />
+                                            <a style="font-family: Poppins-Bold;" href="/registro_inscripciones.php" type="reset" class="btn btn-light btn-lg" value="Limpiar Formulario">Limpiar Formulario</a>
                                             <input style="font-family: Poppins-Bold;" type="submit" class="btn btn-primary btn-lg ms-2" value="Guardar" />
                                         </div>
                                     </div>

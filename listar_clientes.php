@@ -83,7 +83,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
 
                                                     <div class="modal-footer">
                                                         <input type="button" class="btn btn-secondary btn-lg ms-2" data-dismiss="modal" value="Cerrar" />
-                                                        <input type="submit" class="btn btn-primary btn-sm" name="enviar" value="Guardar" />
+                                                        <input type="submit" style="font-family: Poppins-Bold;" class="btn btn-success btn-sm" name="enviar" value="Guardar" />
                                                     </div>
 
                                                 </form>
