@@ -41,7 +41,7 @@
                     </div>
                 </div>               
                 <a style="color: #000;" href="#" class="nav-item nav-link">Reportes</a>
-                <a style="color: #000;" href="#" class="nav-item nav-link">Indicadores</a>
+                <a style="color: #000;" href="/gestion_indicadores.php" class="nav-item nav-link">Indicadores</a>
             </div>
             <div class="navbar-nav ms-auto">
                 <a href="config/exit.php" class="btn btn-secondary">Cerrar Sesión</a>
