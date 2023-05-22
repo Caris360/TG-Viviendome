@@ -21,7 +21,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
             <div class="row">
                 <div class="card card-registration my-2" style=" border-radius: 20px;">
                     <div class="row g-0">
-                        <div class="card-body p-md-5 text-black" style="height: 80vh;">
+                        <div class="card-body p-md-5 text-black" style="height: auto;">
 
                             <div class="col-12">
                                 <table class="table" width="100%" id="TablaClientes" style="box-shadow: 2px 2px 2px 2px lightgray;">

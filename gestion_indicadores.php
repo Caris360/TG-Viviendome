@@ -20,7 +20,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
             <div class="row">
                 <div class="card card-registration my-2" style=" border-radius: 20px;">
                     <div class="row g-0">
-                        <div class="col-xl-6 d-none d-sm-block" style="height: 82vh; border-radius: 20px;">
+                        <div class="col-xl-6 d-none d-sm-block" style="height: auto; border-radius: 20px;">
                             <div class="card-body p-md-5 text-black">
                                 <div class="accordion accordion-flush" id="accordionFlushExample">
 
@@ -34,7 +34,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                             <div class="card-header">Prueba grafico</div>
                                             <div class="card-body">
                                                 <div class="row">
-                                                    <div class="col-lg-4">
+                                                    <div class="col-lg-10">
                                                         <button class="btn btn-primary" id="graficoUno" name="graficoUno">Grafico Bar</button>
                                                         <canvas id="myChart" width="500" height="500"></canvas>
                                                     </div>
@@ -114,11 +114,11 @@ if (!isset($_SESSION['UsuarioActivo'])) {
             }
             const ctx = document.getElementById('myChart');
             new Chart(ctx, {
-                type: 'bar',
+                type: 'doughnut',
                 data: {
                     labels: titulos,
                     datasets: [{
-                        label: '# of Votes',
+                        label: 'Número de grupos',
                         data: valores,
                         borderWidth: 1
                     }]

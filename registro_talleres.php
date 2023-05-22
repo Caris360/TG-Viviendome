@@ -26,7 +26,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                             <img style="height: 82vh; width: 100vh;" src="images/Talleres.jpg" alt="Sample photo" class="img-fluid" />
                         </div>
 
-                        <div class="col-xl-6" style="height: 82vh; border-radius: 20px;">
+                        <div class="col-xl-6" style="height: auto; border-radius: 20px;">
                             <div class="card-body p-md-5 text-black">
                                 <h3 style="font-family: Poppins-Bold;" class="mb-5 text-uppercase">Registrar Taller</h3>
 

@@ -21,7 +21,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
             <div class="row">
                 <div class="card card-registration my-2" style=" border-radius: 20px;">
                     <div class="row g-0">
-                        <div class="col-xl-6 d-none d-sm-block" style="height: 82vh; border-radius: 20px;">
+                        <div class="col-xl-6 d-none d-sm-block" style="height: auto; border-radius: 20px;">
                             <div class="card-body p-md-5 text-black">
 
                                 <h3 style="font-family: Poppins-Bold;" class="mb-5 text-uppercase text-center">Registrar Academia</h3>
@@ -33,7 +33,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                     </div>
 
                                     <div class="form-outline mb-4">
-                                        <img src="images/Academia.jpg" style="width: 68vh; height: 40vh; border-radius: 20px; ">
+                                        <img src="images/Academia.jpg" style="width: 68vh; height: 40vh; border-radius: 20px;" class="img-fluid">
                                     </div>
 
                                     <div class="d-flex justify-content-end pt-3">
@@ -48,7 +48,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                         <div class="col-xl-6" style=" margin-top: 2%; ">
 
                             <table class="table" width="100%" id="TablaAcademia" style="box-shadow: 2px 2px 2px 2px lightgray;">
-                                
+
                                 <thead class="table-dark" style="font-family: Poppins-Bold;">
                                     <tr>
                                         <th style="border-top-left-radius: 20px;" scope="col">NOMBRE ACADEMIA</th>

@@ -23,10 +23,10 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                     <div class="row g-0">
 
                         <div class="col-xl-6 d-none d-sm-block">
-                            <img style="height: 82vh; width: 100vh;" src="images/Clientes.jpg" alt="Sample photo" class="img-fluid" />
+                            <img src="images/Clientes.jpg" style="height: 82vh; width: 100vh;" class="img-fluid" />
                         </div>
 
-                        <div class="col-xl-6" style="height: 82vh; border-radius: 20px;">
+                        <div class="col-xl-6" style="height: auto; border-radius: 20px;">
 
                             <div class="card-body p-md-5 text-black">
 

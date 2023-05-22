@@ -59,7 +59,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                                     <div class="form-outline">
                                                         <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Selecciona el servicio para inscribir:</label>
                                                         <select required id="SeleccionarServicio" name="SeleccionarServicio" class="form-control form-control-lg" disabled>
-                                                            <option selected disabled>Seleccione uno</option>
+                                                            <option value ="" selected disabled>Seleccione uno</option>
                                                             <option value="2">Taller</option>
                                                             <option value="3">Grupo</option>
                                                         </select>
@@ -162,7 +162,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
             var x = $('#seleccionarCliente').val();
             $('#Documento').val(x);
             $("#SeleccionarServicio").removeAttr('disabled');
-            $("#SeleccionarServicio").val('1');
+            $("#SeleccionarServicio").val('');
             $("#Div_2").hide();
             $("#Div_3").hide();
         });

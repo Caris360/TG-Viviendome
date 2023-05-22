@@ -22,7 +22,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                 <div class="card card-registration my-2" style=" border-radius: 20px;">
                     <div class="row g-0">
 
-                        <div class="col-xl-6" style="height: 82vh; border-radius: 20px;">
+                        <div class="col-xl-6" style="height: auto; border-radius: 20px;">
                             <div class="card-body p-md-5 text-black">
                                 <h3 style="font-family: Poppins-Bold;" class="mb-5 text-uppercase">Registrar Producto</h3>
 
@@ -62,7 +62,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                             </div>
                         </div>
 
-                        <div class="col-xl-6 d-none d-sm-block" style="background-image: url(images/Producto.jpg); background-repeat: no-repeat; background-size: 100% 100%; background-position: center center; border-top-left-radius: 20px; border-bottom-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; ">
+                        <div class="col-xl-6 d-none d-sm-block" style="background-image: url(images/Producto.jpg); background-repeat: no-repeat; background-size: 100% 100%; background-position: center center; border-top-left-radius: 20px; border-bottom-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px;" class="img-fluid">
                             <!-- Espacio reservado para la imagen del lateral />-->
                         </div>
 

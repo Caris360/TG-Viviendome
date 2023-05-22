@@ -40,7 +40,7 @@
                         <a href="#" class="dropdown-item">Venta</a>
                     </div>
                 </div>               
-                <a style="color: #000;" href="#" class="nav-item nav-link">Reportes</a>
+                <a style="color: #000;" href="/gestion_reportes.php" class="nav-item nav-link">Reportes</a>
                 <a style="color: #000;" href="/gestion_indicadores.php" class="nav-item nav-link">Indicadores</a>
             </div>
             <div class="navbar-nav ms-auto">
