@@ -1,7 +1,7 @@
 
 <?php
 include('/xampp/htdocs/ViviendomeCoaching/config/conexion_config.php');
-
+include('funciones.php');
 if (!isset($_POST["id_producto"])) {
     exit("No hay id_producto");
 }
