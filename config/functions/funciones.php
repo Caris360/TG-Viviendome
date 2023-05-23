@@ -45,3 +45,62 @@ function convertirFormato($valor)
 {
     return str_replace(array("$", ".", ","), "", $valor);
 }
+
+function obtenerIdsDeProductosEnCarrito()
+{
+    include('/xampp/htdocs/ViviendomeCoaching/config/conexion_config.php');
+    iniciarSesionSiNoEstaIniciada();
+    $sentencia = mysqli_prepare($conexion, "SELECT SUM(CANTIDAD) FROM CARRITO WHERE ID_SESION = ?");
+    $idSesion = session_id();
+    $sentencia->execute([$idSesion]);
+    $resultado = $sentencia->get_result();
+    return $resultado->fetch_column(0);
+}
+
+function obtenerProductosEnCarrito()
+{
+    include('/xampp/htdocs/ViviendomeCoaching/config/conexion_config.php');
+    iniciarSesionSiNoEstaIniciada();
+    $sentencia = mysqli_prepare($conexion, "SELECT PRODUCTO.ID_PRODUCTO, PRODUCTO.NOMBRE_PRODUCTO, PRODUCTO.IMAGEN, PRODUCTO.VALOR_UNITARIO
+     FROM PRODUCTO
+     INNER JOIN CARRITO
+     ON PRODUCTO.ID_PRODUCTO = CARRITO.PRODUCTO_ID
+     WHERE CARRITO.ID_SESION = ?");
+    $idSesion = session_id();
+    $sentencia->execute([$idSesion]);
+    $resultado = $sentencia->get_result();
+    return $resultado->fetch_array();
+}
+
+function agregarProductoAlCarrito($idProducto)
+{
+    include('/xampp/htdocs/ViviendomeCoaching/config/conexion_config.php');
+    iniciarSesionSiNoEstaIniciada();
+    $idSesion = session_id();
+    $consulta = mysqli_query($conexion, "SELECT * FROM CARRITO WHERE ID_SESION = '$idSesion' AND PRODUCTO_ID = $idProducto");
+    if ($consulta->num_rows > 0) {
+        $cantidad = mysqli_fetch_array($consulta);
+        mysqli_query($conexion, "UPDATE CARRITO SET CANTIDAD = $cantidad[1]+1 where ID_SESION ='$idSesion' AND PRODUCTO_ID = '$idProducto'");
+    } else {
+        $cantidad = 1;
+        $sentencia = mysqli_prepare($conexion, "INSERT INTO CARRITO(ID_SESION, CANTIDAD ,PRODUCTO_ID) VALUES (?,?, ?)");
+        return $sentencia->execute([$idSesion, $cantidad, $idProducto]);
+    }
+}
+
+function iniciarSesionSiNoEstaIniciada()
+{
+    if (session_status() !== PHP_SESSION_ACTIVE) {
+        session_start();
+    }
+}
+
+function quitarProductoDelCarrito($idProducto)
+{
+    include('/xampp/htdocs/ViviendomeCoaching/config/conexion_config.php');
+    iniciarSesionSiNoEstaIniciada();
+    $idSesion = session_id();
+    $sentencia = mysqli_prepare($conexion, "DELETE FROM CARRITO WHERE ID_SESION = ? AND PRODUCTO_ID = ?");
+    return $sentencia->execute([$idSesion, $idProducto]);
+}
+?>
