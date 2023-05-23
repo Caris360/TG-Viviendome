@@ -249,8 +249,7 @@ function TablaInscripcionPaga(ID, Consulta) {
       "ajax": {
          "method": "POST",
          "url": "/config/reporte_inscripciones_data.php",
-         "data" : {'Consulta' : Consulta}
-
+         "data": { 'Consulta': Consulta }
       },
       "columns": [{
          "data": "NOMBRE_PUBLICO"
@@ -290,5 +289,268 @@ function TablaInscripcionPaga(ID, Consulta) {
          }
       },
       Buttons: ['copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5']
-   }).fnDestroy();
+   });
+}
+
+function TablaInscripcionDebe(ID, Consulta) {
+   $(ID).DataTable({
+      "ajax": {
+         "method": "POST",
+         "url": "/config/reporte_inscripciones_data.php",
+         "data": { 'Consulta': Consulta }
+      },
+      "columns": [{
+         "data": "NOMBRE_PUBLICO"
+      },
+      {
+         "data": "NOMBRE_GRUPO"
+      },
+      {
+         "data": "NOMBRE_TALLER"
+      },
+      {
+         "data": "VALOR"
+      },
+      {
+         "data": "VALOR_PENDIENTE"
+      },
+      {
+         "data": "FECHA_INSCRIPCION"
+      },
+      {
+         "data": "ESTADO_INSCRIPCION"
+      }
+      ],
+      responsive: true,
+      dom: 'Blfrtip',
+      'pageLength': 5,
+      "lengthMenu": [5, 7],
+      "language": {
+         "lengthMenu": "Mostrando _MENU_ registros por pagina",
+         "zeroRecords": "No se ha encontrado nada",
+         "info": "Mostrando página _PAGE_ de _PAGES_",
+         "infoEmpty": "Vacio",
+         "infoFiltered": "(filtrando de _MAX_ registros)",
+         "search": "Buscar:",
+         "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+         }
+      },
+      Buttons: ['copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5']
+   });
+}
+
+function TablaInscripcion(ID, Consulta) {
+   $(ID).DataTable({
+      "ajax": {
+         "method": "POST",
+         "url": "/config/reporte_inscripciones_data.php",
+         "data": { 'Consulta': Consulta }
+      },
+      "columns": [{
+         "data": "NOMBRE_PUBLICO"
+      },
+      {
+         "data": "NOMBRE_GRUPO"
+      },
+      {
+         "data": "NOMBRE_TALLER"
+      },
+      {
+         "data": "VALOR"
+      },
+      {
+         "data": "VALOR_PENDIENTE"
+      },
+      {
+         "data": "FECHA_INSCRIPCION"
+      },
+      {
+         "data": "ESTADO_INSCRIPCION"
+      }
+      ],
+      responsive: true,
+      dom: 'Blfrtip',
+      'pageLength': 5,
+      "lengthMenu": [5, 7],
+      "language": {
+         "lengthMenu": "Mostrando _MENU_ registros por pagina",
+         "zeroRecords": "No se ha encontrado nada",
+         "info": "Mostrando página _PAGE_ de _PAGES_",
+         "infoEmpty": "Vacio",
+         "infoFiltered": "(filtrando de _MAX_ registros)",
+         "search": "Buscar:",
+         "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+         }
+      },
+      Buttons: ['copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5']
+   });
+}
+
+function TablaPagoClientes(ID, documento) {
+   $(ID).DataTable({
+      "ajax": {
+         "method": "POST",
+         "url": "/config/reporte_pagos_persona_data.php",
+         "data": { 'documento': documento }
+      },
+      "columns": [{
+         "data": "NOMBRE_PUBLICO"
+      },
+      {
+         "data": "NOMBRE_GRUPO"
+      },
+      {
+         "data": "NOMBRE_TALLER"
+      },
+      {
+         "data": "FACTURA"
+      },
+      {
+         "data": "METODO_PAGO"
+      },
+      {
+         "data": "VALOR_ULTIMO_PAGO"
+      },
+      {
+         "data": "VALOR_CAMBIO"
+      },
+      {
+         "data": "FECHA_ULTIMO_PAGO"
+      }
+      ],
+      responsive: true,
+      dom: 'Blfrtip',
+      'pageLength': 5,
+      "lengthMenu": [5, 7],
+      "language": {
+         "lengthMenu": "Mostrando _MENU_ registros por pagina",
+         "zeroRecords": "No se ha encontrado nada",
+         "info": "Mostrando página _PAGE_ de _PAGES_",
+         "infoEmpty": "Vacio",
+         "infoFiltered": "(filtrando de _MAX_ registros)",
+         "search": "Buscar:",
+         "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+         }
+      },
+      Buttons: ['copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5']
+   });
+}
+
+function TablaPagoFechas(ID, fechaInicio, fechaFin) {
+   $(ID).DataTable({
+      "ajax": {
+         "method": "POST",
+         "url": "/config/reporte_pagos_fechas_data.php",
+         "data": { 'fechaInicio': fechaInicio, 'fechafin': fechaFin, }
+      },
+      "columns": [{
+         "data": "NOMBRE_PUBLICO"
+      },
+      {
+         "data": "NOMBRE_GRUPO"
+      },
+      {
+         "data": "NOMBRE_TALLER"
+      },
+      {
+         "data": "FACTURA"
+      },
+      {
+         "data": "METODO_PAGO"
+      },
+      {
+         "data": "VALOR_ULTIMO_PAGO"
+      },
+      {
+         "data": "VALOR_CAMBIO"
+      },
+      {
+         "data": "FECHA_ULTIMO_PAGO"
+      }
+      ],
+      responsive: true,
+      dom: 'Blfrtip',
+      'pageLength': 5,
+      "lengthMenu": [5, 7],
+      "language": {
+         "lengthMenu": "Mostrando _MENU_ registros por pagina",
+         "zeroRecords": "No se ha encontrado nada",
+         "info": "Mostrando página _PAGE_ de _PAGES_",
+         "infoEmpty": "Vacio",
+         "infoFiltered": "(filtrando de _MAX_ registros)",
+         "search": "Buscar:",
+         "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+         }
+      },
+      Buttons: ['copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5']
+   });
+}
+
+function TablaPagos(ID) {
+   $(ID).DataTable({
+      "ajax": {
+         "method": "POST",
+         "url": "/config/reporte_pagos_data.php"
+      },
+      "columns": [{
+         "data": "NOMBRE_PUBLICO"
+      },
+      {
+         "data": "NOMBRE_GRUPO"
+      },
+      {
+         "data": "NOMBRE_TALLER"
+      },
+      {
+         "data": "FACTURA"
+      },
+      {
+         "data": "METODO_PAGO"
+      },
+      {
+         "data": "VALOR_ULTIMO_PAGO"
+      },
+      {
+         "data": "VALOR_CAMBIO"
+      },
+      {
+         "data": "FECHA_ULTIMO_PAGO"
+      }
+      ],
+      responsive: true,
+      dom: 'Blfrtip',
+      'pageLength': 5,
+      "lengthMenu": [5, 7],
+      "language": {
+         "lengthMenu": "Mostrando _MENU_ registros por pagina",
+         "zeroRecords": "No se ha encontrado nada",
+         "info": "Mostrando página _PAGE_ de _PAGES_",
+         "infoEmpty": "Vacio",
+         "infoFiltered": "(filtrando de _MAX_ registros)",
+         "search": "Buscar:",
+         "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+         }
+      },
+      Buttons: ['copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5']
+   });
 }

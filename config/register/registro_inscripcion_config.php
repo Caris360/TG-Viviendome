@@ -16,13 +16,13 @@ switch ($tipoInscripcion) {
         $idTaller =  $_POST['SeleccionarTaller'];
         $precio = $_POST['ValorTaller'];
         $valor = convertirFormato($precio);
-        $tipo = "Ta";      
+        $tipo = "Taller";      
         break;
     case '3':
         $idGrupo = $_POST['SeleccionarGrupo'];
         $precio = $_POST['ValorGrupo'];
         $valor = convertirFormato($precio);
-        $tipo = "Gr";     
+        $tipo = "Grupo";     
         break;
     default:
     echo "<script>alert('¡Selecciona la totalidad de campos!'); window.location='/registro_inscripciones.php'; </script>";

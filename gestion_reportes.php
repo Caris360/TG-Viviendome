@@ -41,7 +41,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
 
                                     <div class="col-md-4 mb-2" id="LabelSeleccionServicio">
                                         <div class="form-outline">
-                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Selecciona reporte de:</label>
+                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Selecciona el tipo:</label>
                                             <select required id="SeleccionServicio" name="SeleccionServicio" class="form-control form-control-lg">
                                                 <option value="0" selected disabled>Seleccione uno</option>
                                                 <option value="1">Clientes</option>
@@ -59,46 +59,81 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                             <button style="font-family: Poppins-Bold; " id="ReporteGeneral" name="ReporteGeneral" class="btn btn-primary form-control">Generar</button>
                                         </div>
                                     </div>
+
+                                    <div class="col-md-4 mb-2" id="LabelInscripciones">
+                                        <div class="form-outline">
+                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Selecciona el tipo:</label>
+                                            <select required id="SeleccionInscripcion" name="SeleccionInscripcion" class="form-control form-control-lg">
+                                                <option value="0" selected disabled>Seleccione uno</option>
+                                                <option value="1">Pagadas</option>
+                                                <option value="2">En deuda</option>
+                                                <option value="3">Totalidad</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 mb-2" id="LabelReporteInscripcion">
+                                        <div class="form-outline">
+                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Obtener Reporte:</label>
+                                            <button style="font-family: Poppins-Bold; " id="ReporteInscripcion" name="ReporteInscripcion" class="btn btn-primary form-control">Generar</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2 mb-2" id="LabelPagos">
+                                        <div class="form-outline">
+                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Selecciona el tipo:</label>
+                                            <select required id="SeleccionPagos" name="SeleccionPagos" class="form-control form-control-lg">
+                                                <option value="0" selected disabled>Seleccione uno</option>
+                                                <option value="1">Clientes</option>
+                                                <option value="2">Rango Fechas</option>
+                                                <option value="3">Totalidad</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-2" id="LabelClientes">
+                                        <div class="form-outline">
+                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre Cliente:</label>
+                                            <select required id="SeleccionCliente" name="SeleccionCliente" class="form-control form-control-lg">
+                                                <option selected disabled>Seleccione uno</option>
+                                                <?php
+                                                include('config/conexion_config.php');
+                                                $sql = mysqli_query($conexion, "SELECT * FROM cliente ORDER BY NOMBRE_PUBLICO ASC");
+                                                while ($row = mysqli_fetch_array($sql)) {
+                                                ?>
+                                                    <option value="<?php printf($row['IDENTIFICACION_CLIENTE']) ?>"><?php printf($row['NOMBRE_PUBLICO']) ?></option>
+                                                <?php
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 mb-2" id="LabelFechaInicio">
+                                        <div class="form-outline">
+                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Fecha inicio:</label>
+                                            <span class="datepicker-toggle">
+                                                <span class="datepicker-toggle-button"></span>
+                                                <input required id="FechaInicio" name="FechaInicio" max="<?= date('Y-m-d') ?>" value="<?= date('Y-m-d') ?>" type="date" class="datepicker-input form-control form-control-lg">
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 mb-2" id="LabelFechaFin">
+                                        <div class="form-outline">
+                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Fecha fin:</label>
+                                            <span class="datepicker-toggle">
+                                                <span class="datepicker-toggle-button"></span>
+                                                <input required id="FechaFin" name="FechaFin" max="<?= date('Y-m-d') ?>" value="<?= date('Y-m-d') ?>" type="date" class="datepicker-input form-control form-control-lg">
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 mb-2" id="LabelReportePagos">
+                                        <div class="form-outline">
+                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Obtener Reporte:</label>
+                                            <button style="font-family: Poppins-Bold; " id="ReportePagos" name="ReportePagos" class="btn btn-primary form-control">Generar</button>
+                                        </div>
+                                    </div>
+
                                 </div>
 
                                 <br></br>
-
-                                <div class="CuerpoOpcionesReporte" id="Div_2">
-                                    <div class="row">
-                                        <div class="col-md-12 mb-4">
-                                            <div class="row">
-                                                <div class="col-md-4 mb-2">
-                                                    <div class="form-outline">
-                                                        <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Selecciona el tipo:</label>
-                                                        <select required id="SeleccionInscripcion" name="SeleccionInscripcion" class="form-control form-control-lg">
-                                                            <option value="0" selected disabled>Seleccione uno</option>
-                                                            <option value="1">Pagadas</option>
-                                                            <option value="2">En deuda</option>
-                                                            <option value="3">Totalidad</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <!--<div class="col-md-4 mb-2">
-                                                    <div class="form-outline">
-                                                        <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Aplicar para:</label>
-                                                        <select required id="SeleccionTipoInscripcion" name="SeleccionTipoInscripcion" class="form-control form-control-lg">
-                                                            <option value="0" selected disabled>Seleccione uno</option>
-                                                            <option value="1">Grupos</option>
-                                                            <option value="2">Talleres</option>
-                                                            <option value="3">Ambos</option>
-                                                        </select>
-                                                    </div>
-                                                </div>-->
-                                                <div class="col-md-2 mb-2" id="LabelReporteInscripcion">
-                                                    <div class="form-outline">
-                                                        <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Obtener Reporte:</label>
-                                                        <button style="font-family: Poppins-Bold; " id="ReporteInscripcion" name="ReporteInscripcion" class="btn btn-primary form-control">Generar</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <?php include('template/report_tables.php'); ?>
 
@@ -122,7 +157,6 @@ if (!isset($_SESSION['UsuarioActivo'])) {
         ocultarComponentes();
         ocultarTablas();
 
-
         $("#OpcionReporte").change(function() {
 
             var opcionReporte = $('#OpcionReporte').val();
@@ -141,6 +175,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                     ocultarTablas();
 
                     $('#ReporteGeneral').click(function() {
+                        ocultarTablas();
                         if (opcionGeneral == "1") {
                             $("#Div_tbCliente").show();
                             TablaClientes('#ReporteClientes');
@@ -173,28 +208,121 @@ if (!isset($_SESSION['UsuarioActivo'])) {
             if (opcionReporte == "2") {
                 ocultarComponentes();
                 ocultarTablas();
-                $("#Div_2").show();
+                $("#LabelInscripciones").show();
                 $("#SeleccionInscripcion").show();
+                $("#SeleccionInscripcion").val('0');
 
                 $("#SeleccionInscripcion").change(function() {
-                    var opcionInscripcion = $('#SeleccionInscripcion').val();
+                    var valor = $('#SeleccionInscripcion').val();
                     $("#LabelReporteInscripcion").show();
+                    $("#ReporteInscripcion").show();
                     ocultarTablas();
 
                     $('#ReporteInscripcion').click(function() {
-                        $('#Div_tbInscripcionPaga').show();
-                        TablaInscripcionPaga('#ReporteInscripcionPaga', opcionInscripcion);
+                        ocultarTablas();
+                        if (valor == "1") {
+                            $('#Div_tbInscripcionesPagas').show();
+                            TablaInscripcionPaga('#ReporteInscripcionesPagas', valor);
+                        }
+                        if (valor == "2") {
+                            $('#Div_tbInscripcionesDeuda').show();
+                            TablaInscripcionDebe('#ReporteInscripcionesDeuda', valor);
+                        }
+                        if (valor == "3") {
+                            $('#Div_tbInscripciones').show();
+                            TablaInscripcion('#ReporteInscripciones', valor);
+                        }
                     });
 
                 });
 
             }
             if (opcionReporte == "3") {
-
                 ocultarComponentes();
                 ocultarTablas();
+                $("#LabelPagos").show();
+                $("#SeleccionPagos").show();
+                $("#SeleccionPagos").val('0');
 
-                $("#Div_3").show();
+                $("#SeleccionPagos").change(function() {
+                    var opcionP = $('#SeleccionPagos').val();
+                    ocultarTablas();
+
+                    var cedulaCliente, fechaInicio, fechafin;
+
+                    if (opcionP == "1") {
+                        ocultarComponentes();
+                        $("#LabelPagos").show();
+                        $("#SeleccionPagos").show();
+                        $("#LabelClientes").show();
+                        $("#SeleccionCliente").show();
+
+                        $("#SeleccionCliente").change(function() {
+                            cedulaCliente = $('#SeleccionCliente').val();
+                            $("#LabelReportePagos").show();
+                            $("#ReportePagos").show();
+                        });
+                    }
+                    if (opcionP == "2") {
+                        ocultarComponentes();
+                        $("#LabelPagos").show();
+                        $("#SeleccionPagos").show();
+                        $("#LabelFechaInicio").show();
+                        $("#FechaInicio").show();
+                        $("#LabelFechaFin").show();
+                        $("#FechaFin").show();
+                        $("#LabelReportePagos").show();
+                        $("#ReportePagos").show();
+                        fechaInicio = $('#FechaInicio').val();
+                        fechafin = $('#FechaFin').val();
+
+                        $("#FechaInicio").change(function() {
+                            fechaInicio = $('#FechaInicio').val();
+                            $('#Div_tbPagosFechas').hide();
+                            if (fechaInicio > fechafin) {
+                                alert('Valida las fechas seleccionadas!');
+                            }
+                        });
+
+                        $("#FechaFin").change(function() {
+                            fechafin = $('#FechaFin').val();
+                            $('#Div_tbPagosFechas').hide();
+                            if (fechaInicio > fechafin) {
+                                alert('Valida las fechas seleccionadas!');
+                            }
+                        });
+                    }
+                    if (opcionP == "3") {
+                        ocultarComponentes();
+                        $("#LabelPagos").show();
+                        $("#SeleccionPagos").show();
+                        $("#LabelReportePagos").show();
+                    }
+
+                    $("#ReportePagos").click(function() {
+                        ocultarTablas()
+                        if (opcionP == "1") {
+                            $('#Div_tbPagosCliente').show();
+                            TablaPagoClientes('#ReportePagosCliente', cedulaCliente);
+                        }
+                        if (opcionP == "2") {
+                            fechaInicio = $('#FechaInicio').val();
+                            fechafin = $('#FechaFin').val();
+                            if (fechaInicio > fechafin) {
+                                alert('Valida las fechas seleccionadas!');
+                            } else {
+                                $('#Div_tbPagosFechas').show();
+                                TablaPagoFechas('#ReportePagosFechas', fechaInicio, fechafin);
+                                alert('Fechas seleccionadas: ' + fechaInicio + " - " + fechafin);
+                            }
+                        }
+                        if (opcionP == "3") {
+                            $('#Div_tbPagos').show();
+                            TablaPagos('#ReportePagos');
+                        }
+                    });
+
+                });
             }
 
         });
@@ -204,10 +332,20 @@ if (!isset($_SESSION['UsuarioActivo'])) {
     function ocultarComponentes() {
         $("#LabelSeleccionServicio").hide();
         $('#LabelReporteGeneral').hide();
-        $("#Div_2").hide();
-        $("#Div_3").hide();
+
+        $("#LabelInscripciones").hide();
         $("#SeleccionInscripcion").hide();
         $('#LabelReporteInscripcion').hide();
+
+        $("#LabelPagos").hide();
+        $("#SeleccionPagos").hide();
+        $("#LabelClientes").hide();
+        $("#SeleccionCliente").hide();
+        $("#LabelFechaInicio").hide();
+        $("#FechaInicio").hide();
+        $("#LabelFechaFin").hide();
+        $("#FechaFin").hide();
+        $("#LabelReportePagos").hide();
     }
 
     function ocultarTablas() {
@@ -217,6 +355,11 @@ if (!isset($_SESSION['UsuarioActivo'])) {
         $('#Div_tbClase').hide();
         $('#Div_tbTaller').hide();
         $('#Div_tbProducto').hide();
-        $('#Div_tbInscripcionPaga').hide();
+        $('#Div_tbInscripciones').hide();
+        $('#Div_tbInscripcionesPagas').hide();
+        $('#Div_tbInscripcionesDeuda').hide();
+        $('#Div_tbPagosCliente').hide();
+        $('#Div_tbPagosFechas').hide();
+        $('#Div_tbPagos').hide();
     }
 </script>

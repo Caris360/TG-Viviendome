@@ -1,9 +1,8 @@
 <?php
 
 include('conexion_config.php');
-//$filtro = $_POST['cantidad'];
 
-$query = "SELECT NOMBRE_ACADEMIA, CANTIDAD_GRUPOS from academia order by CANTIDAD_GRUPOS DESC LIMIT 4";
+$query = "SELECT TIPO_INSCRIPCION, COUNT(IDENTIFICACION_CLIENTE) CANTIDAD FROM inscripciones GROUP BY TIPO_INSCRIPCION";
 $resultado = mysqli_query($conexion, $query);
 
 if($resultado){
