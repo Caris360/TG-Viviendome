@@ -3,7 +3,7 @@ include_once('config/functions/funciones.php');
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a href="/tienda_virtual.php" class="navbar-brand">
+        <a href="/config/exit_tienda.php" class="navbar-brand">
             <img src="images/Logo.PNG" height="28" alt="Viviendome">
         </a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -11,7 +11,7 @@ include_once('config/functions/funciones.php');
         </button>
         <div class="collapse navbar-collapse " id="navbarCollapse">
             <div class="navbar-nav">
-                <a style="text-decoration: none;" href="/tienda_virtual.php"><span style="font-family: Poppins-Bold; ">TIENDA VIRTUAL</span></a>
+                <a style="text-decoration: none;" href="/config/exit_tienda.php"><span style="font-family: Poppins-Bold; ">TIENDA VIRTUAL</span></a>
             </div>
             <div class="navbar-nav ms-auto">
                 <a href="/carrito.php" class="site-cart" style="text-decoration: none;">

@@ -72,6 +72,21 @@ function obtenerProductosEnCarrito()
     return $resultado->fetch_array();
 }
 
+function validarCarrito()
+{
+    include('/xampp/htdocs/ViviendomeCoaching/config/conexion_config.php');
+    iniciarSesionSiNoEstaIniciada();
+    $sentencia = mysqli_prepare($conexion, "SELECT COUNT(*)
+     FROM PRODUCTO
+     INNER JOIN CARRITO
+     ON PRODUCTO.ID_PRODUCTO = CARRITO.PRODUCTO_ID
+     WHERE CARRITO.ID_SESION = ?");
+    $idSesion = session_id();
+    $sentencia->execute([$idSesion]);
+    $resultado = $sentencia->get_result();
+    return $resultado->fetch_column(0);
+}
+
 function agregarProductoAlCarrito($idProducto)
 {
     include('/xampp/htdocs/ViviendomeCoaching/config/conexion_config.php');

@@ -29,7 +29,7 @@ switch ($tipoInscripcion) {
         break;
 }
 
-if ($tipo == "Gr") {
+if ($tipo == "Grupo") {
     $validarGrupo = mysqli_query($conexion, "SELECT * FROM inscripciones WHERE IDENTIFICACION_CLIENTE = '$idCliente' AND GRUPO_ID = '$idGrupo'");
     echo "<script>alert('¡Cliente ya inscrito en ese servicio!'); window.location='/registro_inscripciones.php'; </script>";
     if ($validarGrupo->num_rows >= 1) {
@@ -40,7 +40,7 @@ if ($tipo == "Gr") {
     }
 }
 
-if ($tipo == "Ta") {
+if ($tipo == "Taller") {
     $validarTaller = mysqli_query($conexion, "SELECT * FROM inscripciones WHERE IDENTIFICACION_CLIENTE = '$idCliente' AND TALLER_ID = '$idTaller'");
     if ($validarTaller->num_rows >= 1) {
         echo "<script>alert('¡Cliente ya inscrito en ese servicio!'); window.location='/registro_inscripciones.php'; </script>";

@@ -5,7 +5,6 @@ include('config/functions/funciones.php');
 
 ?>
 
-
 <!DOCTYPE html>
 
 <head>
@@ -36,8 +35,8 @@ include('config/functions/funciones.php');
                         <div class="site-blocks-table">
                             <?php
 
-                            $productos = obtenerProductosEnCarrito();
-                            if (count($productos) == 0) {
+                            $productos = validarCarrito();
+                            if ($productos == 0) {
                             ?>
                                 <section class="hero is-info">
                                     <div class="hero-body">
@@ -78,7 +77,7 @@ include('config/functions/funciones.php');
                                                     $rows[] = $row;
                                                 }
                                                 foreach ($rows as $productos) {
-                                                    $total += $productos['VALOR_UNITARIO'];
+                                                    $total += $productos['VALOR_UNITARIO'] * $productos['CANTIDAD'];
                                                 ?>
 
                                                     <tr>

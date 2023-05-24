@@ -37,7 +37,7 @@
                     <div class="dropdown-menu">
                         <a href="/registro_productos.php" class="dropdown-item">Productos</a>
                         <a href="/listar_productos.php" class="dropdown-item">Listado</a>
-                        <a href="#" class="dropdown-item">Venta</a>
+                        <a href="/tienda_virtual.php" target="_blank" class="dropdown-item">Venta</a>
                     </div>
                 </div>               
                 <a style="color: #000;" href="/gestion_reportes.php" class="nav-item nav-link">Reportes</a>

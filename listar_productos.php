@@ -41,30 +41,33 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                             <div class="modal-content" style="border-radius: 20px;">
 
                                                 <div class="modal-header">
-                                                    <h5 style="font-family: Poppins-Bold;" class="modal-title" id="exampleModalLabel">Editar Taller</h5>
+                                                    <h5 style="font-family: Poppins-Bold;" class="modal-title" id="exampleModalLabel">Editar Producto</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
-                                                <form method="POST" action="config/update/actualizar_taller_config.php" id="FormularioTaller">
+                                                <form method="POST" action="config/update/actualizar_producto_config.php" id="FormularioProducto">
                                                     <div class="modal-body">
-                                                        <input type="hidden" required id="ID" name="ID" class="form-control form-control-lg" />
+                                                        <input type="hidden" required id="IDA" name="IDA" class="form-control form-control-lg" />
                                                         <div class="form-outline mb-4">
-                                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre Taller:</label>
-                                                            <input type="text" required id="NombreTaller" name="NombreTaller" class="form-control form-control-lg" />
+                                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre Producto:</label>
+                                                            <input type="text" required id="NombreProducto" name="NombreProducto" class="form-control form-control-lg" />
                                                         </div>
                                                         <div class="form-outline mb-4">
-                                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Valor Inscripción:</label>
-                                                            <input autocomplete="off" type="text" placeholder="$0" data-type="currency" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" required id="ValorInscripcion" name="ValorInscripcion" class="form-control form-control-lg" />
+                                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Valor Unitario:</label>
+                                                            <input autocomplete="off" type="text" placeholder="$0" data-type="currency" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" required id="ValorUnitarioA" name="ValorUnitarioA" class="form-control form-control-lg" />
                                                         </div>
                                                         <div class="form-outline mb-4">
-                                                            <div class="form-outline">
-                                                                <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Fecha:</label>
-                                                                <span class="datepicker-toggle">
-                                                                    <span class="datepicker-toggle-button"></span>
-                                                                    <input id="FechaE" name="FechaE" type="date" class="datepicker-input form-control form-control-lg">
-                                                                </span>
-                                                            </div>
+                                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Stock Inicial:</label>
+                                                            <input autocomplete="off" type="number" required id="StockA" name="StockA" class="form-control form-control-lg" />
+                                                        </div>
+                                                        <div class="form-outline mb-4">
+                                                            <label style="font-family: Poppins-Bold;" style="font-family: Poppins-Bold;" class="form-label" for="form3Example1m">Complemento:</label>
+                                                            <input autocomplete="off" type="text" placeholder="Nota adicional" id="ComplementoA" name="ComplementoA" class="form-control form-control-lg" />
+                                                        </div>
+                                                        <div class="form-outline mb-4">
+                                                            <label style="font-family: Poppins-Bold;" style="font-family: Poppins-Bold;" class="form-label" for="form3Example1m">Imagen Producto:</label>
+                                                            <input type="file" class='fancy-file form-control-lg' id="ImagenA" name="ImagenA" accept="image/*" multiple />
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
@@ -86,16 +89,16 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
-                                                <form method="POST" action="config/delete/eliminar_taller_config.php" id="FormularioTaller">
+                                                <form method="POST" action="config/delete/eliminar_producto_config.php" id="FormularioTaller">
                                                     <div class="modal-body">
                                                         <input type="hidden" required id="IDE" name="IDE" class="form-control form-control-lg" />
                                                         <div class="form-outline mb-4">
-                                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre Taller:</label>
-                                                            <input type="text" disabled required id="NombreTallerE" name="NombreTallerE" class="form-control form-control-lg" />
+                                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre Producto:</label>
+                                                            <input type="text" disabled id="NombreProductoE" name="NombreProductoE" class="form-control form-control-lg" />
                                                         </div>
                                                         <div class="form-outline mb-4">
-                                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Valor Inscripción:</label>
-                                                            <input autocomplete="off" disabled type="text" placeholder="$0" data-type="currency" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" required id="ValorInscripcionE" name="ValorInscripcionE" class="form-control form-control-lg" />
+                                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Valor Unitario:</label>
+                                                            <input autocomplete="off" type="text" disabled placeholder="$0" data-type="currency" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" required id="ValorUnitarioE" name="ValorUnitarioE" class="form-control form-control-lg" />
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
@@ -123,6 +126,42 @@ if (!isset($_SESSION['UsuarioActivo'])) {
 <script>
     $(document).ready(function() {
         listarTabla();
+
+        const create = str => document.createElement(str);
+        const files = document.querySelectorAll('.fancy-file');
+        Array.from(files).forEach(
+            f => {
+                const label = create('label');
+                const span_text = create('span');
+                const span_name = create('span');
+                const span_button = create('span');
+
+                label.htmlFor = f.id;
+
+                span_text.className = 'fancy-file__fancy-file-name';
+                span_button.className = 'fancy-file__fancy-file-button';
+
+                span_name.innerHTML = f.dataset.empty || 'Ningun archivo seleccionado';
+                span_button.innerHTML = f.dataset.button || 'Buscar';
+
+                label.appendChild(span_text);
+                label.appendChild(span_button);
+                span_text.appendChild(span_name);
+                f.parentNode.appendChild(label);
+
+                span_name.style.width = (span_text.clientWidth - 20) + 'px';
+
+                f.addEventListener('change', e => {
+                    if (f.files.length == 0) {
+                        span_name.innerHTML = f.dataset.empty || 'Ningún archivo seleccionado';
+                    } else if (f.files.length > 1) {
+                        span_name.innerHTML = f.files.length + ' archivos seleccionados';
+                    } else {
+                        span_name.innerHTML = f.files[0].name;
+                    }
+                });
+            }
+        );
 
     });
 
@@ -168,19 +207,18 @@ if (!isset($_SESSION['UsuarioActivo'])) {
             },
             Buttons: ['copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5']
         });
-        /*obtener_data_editar("#TablaProductos tbody", table);
-        obtener_data_eliminar("#TablaProductos tbody", table); */
+        obtener_data_editar("#TablaProductos tbody", table);
+        obtener_data_eliminar("#TablaProductos tbody", table);
     }
 
-    /*var obtener_data_editar = function(tbody, table) {
+    var obtener_data_editar = function(tbody, table) {
         $(tbody).on("click", "button.editar", function() {
             var data = table.row($(this).parents("tr")).data();
-            var id = $("#ID").val(data.ID_PRODUCTO),
-                nombre = $("#NombreTaller").val(data.NOMBRE_PRODUCTO),
-                valor = $("#ValorInscripcion").val(data.VALOR_UNITARIO),
-                fecha = $("#FechaE").val(data.STOCK)
-                fecha = $("#FechaE").val(data.COMPLEMENTO)
-                fecha = $("#FechaE").val(data.IMAGEN)
+            var id = $("#IDA").val(data.ID_PRODUCTO),
+                nombre = $("#NombreProducto").val(data.NOMBRE_PRODUCTO),
+                valor = $("#ValorUnitarioA").val(data.VALOR_UNITARIO),
+                stock = $("#StockA").val(data.STOCK),
+                complemento = $("#ComplementoA").val(data.COMPLEMENTO)
             console.log(data);
         });
     }
@@ -189,9 +227,9 @@ if (!isset($_SESSION['UsuarioActivo'])) {
         $(tbody).on("click", "button.eliminar", function() {
             var data = table.row($(this).parents("tr")).data();
             var id = $("#IDE").val(data.ID_PRODUCTO),
-                nombre = $("#NombreTallerE").val(data.NOMBRE_PRODUCTO),
-                valor = $("#ValorInscripcionE").val(data.VALOR_UNITARIO)
+                nombre = $("#NombreProductoE").val(data.NOMBRE_PRODUCTO),
+                valor = $("#ValorUnitarioE").val(data.VALOR_UNITARIO)
             console.log(data);
         });
-    }*/
+    }
 </script>

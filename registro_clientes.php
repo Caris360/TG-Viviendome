@@ -65,7 +65,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
 
                                     <div class="form-outline mb-4">
                                         <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example9">Contacto:</label>
-                                        <input type="text" required id="Contacto" name="Contacto" class="form-control form-control-lg" />
+                                        <input type="tel" required id="Contacto" name="Contacto" pattern="\([0-9]{3}\) [0-9]{3}[ -][0-9]{4}" class="form-control form-control-lg" />
                                     </div>
 
                                     <div class="form-outline mb-4">

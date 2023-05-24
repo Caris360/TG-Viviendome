@@ -256,10 +256,10 @@
     </div>
 </div>
 
-<div class="CuerpoOpcionesReporte" id="Div_tbPagos">
+<div class="CuerpoOpcionesReporte" id="Div_tbPago">
     <div class="col-12">
-        <h2 style="font-family: Poppins-Bold; text-align: center;" class="mb-5 text-uppercase">Reporte de Pagos</h2>
-        <table class="table" width="100%" id="ReportePagos" style="box-shadow: 2px 2px 2px 2px lightgray;">
+        <h2 style="font-family: Poppins-Bold; text-align: center;" class="mb-5 text-uppercase">Reporte Pagos</h2>
+        <table class="table" width="100%" id="ReportePago" style="box-shadow: 2px 2px 2px 2px lightgray;">
 
             <thead class="table-dark" style="font-family: Poppins-Bold;">
                 <tr>

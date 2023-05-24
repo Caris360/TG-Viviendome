@@ -2,7 +2,7 @@
 
 include('conexion_config.php');
 
-$query = "SELECT NOMBRE_PRODUCTO, VALOR_UNITARIO, STOCK, COMPLEMENTO from producto";
+$query = "SELECT ID_PRODUCTO, NOMBRE_PRODUCTO, VALOR_UNITARIO, STOCK, COMPLEMENTO from producto";
 $resultado = mysqli_query($conexion, $query);
 
 if($resultado){
