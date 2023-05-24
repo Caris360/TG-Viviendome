@@ -46,7 +46,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
-                                                <form method="POST" action="config/update/actualizar_producto_config.php" id="FormularioProducto">
+                                                <form enctype="multipart/form-data" method="POST" action="config/update/actualizar_producto_config.php" id="FormularioProducto">
                                                     <div class="modal-body">
                                                         <input type="hidden" required id="IDA" name="IDA" class="form-control form-control-lg" />
                                                         <div class="form-outline mb-4">
@@ -55,7 +55,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                                         </div>
                                                         <div class="form-outline mb-4">
                                                             <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Valor Unitario:</label>
-                                                            <input autocomplete="off" type="text" placeholder="$0" data-type="currency" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" required id="ValorUnitarioA" name="ValorUnitarioA" class="form-control form-control-lg" />
+                                                            <input autocomplete="off" autofocus type="text" placeholder="$0" data-type="currency" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" id="ValorUnitarioA" name="ValorUnitarioA" class="form-control form-control-lg" />
                                                         </div>
                                                         <div class="form-outline mb-4">
                                                             <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Stock Inicial:</label>
@@ -162,6 +162,11 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                 });
             }
         );
+
+        $('#ValorUnitarioA').mousemove(function() {
+            document.getElementById("ValorUnitarioA").focus();
+            document.getElementById("ValorUnitarioA").removeAttribute('pattern');
+        });
 
     });
 
