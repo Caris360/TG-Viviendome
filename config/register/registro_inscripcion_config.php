@@ -1,5 +1,6 @@
 <?php
 
+include('/xampp/htdocs/ViviendomeCoaching/config/functions/funciones.php');
 require('/xampp/htdocs/ViviendomeCoaching/config/conexion_config.php');
 
 setlocale(LC_ALL, 'es_CO');
@@ -50,6 +51,3 @@ if ($tipo == "Taller") {
     }
 }
 
-function convertirFormato($valor){
-    return str_replace(array("$", ".", ","), "", $valor);
-  }

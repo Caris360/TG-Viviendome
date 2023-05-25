@@ -24,7 +24,8 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                 <table class="table" width="100%" id="TablaPagos" style="box-shadow: 2px 2px 2px 2px lightgray">
                                     <thead class="table-dark" style="font-family: Poppins-Bold">
                                         <tr>
-                                            <th style="border-top-left-radius: 20px; text-align: center" scope="col">ID CLIENTE</th>
+                                            <th style="border-top-left-radius: 20px; text-align: center" scope="col">DOCUMENTO</th>
+                                            <th style="text-align: center" scope="col">NOMBRE CLIENTE</th>
                                             <th style="text-align: center" scope="col">GRUPO</th>
                                             <th style="text-align: center" scope="col">TALLER</th>
                                             <th style="text-align: center" scope="col">VALOR INSCRIPCIÓN</th>
@@ -115,6 +116,9 @@ if (!isset($_SESSION['UsuarioActivo'])) {
             },
             "columns": [{
                     "data": "IDENTIFICACION_CLIENTE"
+                },
+                {
+                    "data": "NOMBRE_PUBLICO"
                 },
                 {
                     "data": "NOMBRE_GRUPO"
