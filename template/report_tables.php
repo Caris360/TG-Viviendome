@@ -281,3 +281,24 @@
         </table>
     </div>
 </div>
+
+<div class="CuerpoOpcionesReporte" id="Div_tbFactura">
+    <div class="col-12">
+        <h2 style="font-family: Poppins-Bold; text-align: center;" class="mb-5 text-uppercase">Reporte Facturas</h2>
+        <table class="table" width="100%" id="ReporteFactura" style="box-shadow: 2px 2px 2px 2px lightgray;">
+
+            <thead class="table-dark" style="font-family: Poppins-Bold;">
+                <tr>
+                    <th style="border-top-left-radius: 20px; text-align: center" scope="col">FACTURA</th>
+                    <th style="text-align: center" scope="col">FECHA VENTA</th>
+                    <th style="border-top-right-radius: 20px; text-align: center" scope="col">VALOR TOTAL</th>
+                </tr>
+            </thead>
+
+            <tbody style="font-family: Poppins-Medium; text-align: center;">
+                <tr class="alert">
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

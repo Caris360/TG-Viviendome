@@ -52,6 +52,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                                 <option value="5">Talleres</option>
                                                 <option value="6">Productos</option>
                                                 <option value="7">Pagos</option>
+                                                <option value="8">Facturas</option>
                                             </select>
                                         </div>
                                     </div>
@@ -257,6 +258,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
         $('#Div_tbPagosCliente').hide();
         $('#Div_tbPagosFechas').hide();
         $('#Div_tbPago').hide();
+        $('#Div_tbFactura').hide();
     }
 
     function reportesGenerales(opcional) {
@@ -288,6 +290,10 @@ if (!isset($_SESSION['UsuarioActivo'])) {
         if (opcional == "7") {
             $('#Div_tbPago').show();
             TablaPagos('#ReportePago');
+        }
+        if (opcional == "8") {
+            $('#Div_tbFactura').show();
+            TablaFactura('#ReporteFactura');
         }
     }
 

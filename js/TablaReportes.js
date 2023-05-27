@@ -501,3 +501,40 @@ function TablaPagoClientes(ID, documento) {
    });
 }
 
+function TablaFactura(ID) {
+   $(ID).DataTable({
+      "ajax": {
+         "method": "POST",
+         "url": "/config/reporte_facturas_data.php"
+      },
+      "columns": [{
+         "data": "ID_FACTURA"
+      },
+      {
+         "data": "FECHA_FACTURA"
+      },
+      {
+         "data": "VALOR_TOTAL"
+      }
+      ],
+      responsive: true,
+      dom: 'Blfrtip',
+      'pageLength': 5,
+      "lengthMenu": [5, 7],
+      "language": {
+         "lengthMenu": "Mostrando _MENU_ registros por pagina",
+         "zeroRecords": "No se ha encontrado nada",
+         "info": "Mostrando página _PAGE_ de _PAGES_",
+         "infoEmpty": "Vacio",
+         "infoFiltered": "(filtrando de _MAX_ registros)",
+         "search": "Buscar:",
+         "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+         }
+      },
+      Buttons: ['copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5']
+   });
+}

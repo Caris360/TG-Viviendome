@@ -144,7 +144,7 @@ function obtenerProductosEnCarrito()
 {
     include('/xampp/htdocs/ViviendomeCoaching/config/conexion_config.php');
     iniciarSesionSiNoEstaIniciada();
-    $sentencia = mysqli_prepare($conexion, "SELECT PRODUCTO.ID_PRODUCTO, PRODUCTO.NOMBRE_PRODUCTO, PRODUCTO.IMAGEN, PRODUCTO.VALOR_UNITARIO
+    $sentencia = mysqli_prepare($conexion, "SELECT PRODUCTO.ID_PRODUCTO, PRODUCTO.NOMBRE_PRODUCTO, PRODUCTO.STOCK, PRODUCTO.IMAGEN, PRODUCTO.VALOR_UNITARIO
      FROM PRODUCTO
      INNER JOIN CARRITO
      ON PRODUCTO.ID_PRODUCTO = CARRITO.PRODUCTO_ID
