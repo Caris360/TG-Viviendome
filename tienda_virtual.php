@@ -32,7 +32,7 @@ session_start();
                     <div class="row justify-content-center">
                         <?php
                         include('config/conexion_config.php');
-                        $sql = mysqli_query($conexion, "SELECT * FROM PRODUCTO");
+                        $sql = mysqli_query($conexion, "SELECT * FROM PRODUCTO WHERE STOCK > 0");
                         while ($row = mysqli_fetch_array($sql)) { ?>
                             <div class="col-lg-4 col-md-4 mb-4">
                                 <div class="card">
@@ -45,9 +45,25 @@ session_start();
                                         <h6 class="mb-3">$ <?php printf($row['VALOR_UNITARIO']) ?></h6>
                                         <form action="/config/functions/agregar_carrito.php" method="post">
                                             <input type="hidden" name="id_producto" value="<?php printf($row['ID_PRODUCTO']) ?>">
-                                            <button class="btn btn-outline-primary btn-lg py-3 btn-block form-control">
-                                                Agregar
-                                            </button>
+                                            <div class="row">
+                                                <div class="col-md-2 mb-2">
+                                                    <label style="font-family: Poppins-Bold; font-size: 12px;" class="form-label" for="form3Example8" style="margin-top: 0px;">Stock: <?php printf(obtieneStockProductos($row['ID_PRODUCTO'])) ?></label>
+                                                </div>
+                                                <div class="col-md-8 mb-2">
+                                                    <button class="btn btn-outline-primary  btn-block form-control">
+                                                        Agregar
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-2 mb-2">
+                                                    <input type="text" disabled id="cantidad" name="cantidad" value="<?php $conteo = obtieneCantidadDeProducto($row['ID_PRODUCTO']);
+                                                                                                        if ($conteo > 0) {
+                                                                                                            printf($conteo);
+                                                                                                        } else {
+                                                                                                            printf(0);
+                                                                                                        }
+                                                                                                        ?>" style="text-align: center; width: 35px; height: 37px; border-radius: 20px;">
+                                                </div>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>

@@ -24,9 +24,9 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                         <div class="text-center">
                             <img src="images/Viviendome.PNG" style="width: 50vh;">
                             <p style="font-family: Poppins-bold; color: #000000; border-radius: 20px; background-color: rgba(255,255,255,0.31976540616246496);" class="lead">
-                                Somos un negocio enfocado en el Ser y en todo aquello que puedes lograr.
+                                Somos un negocio enfocado en el ser y en todo aquello que puedes lograr.
                                 <br>
-                                Estamos ubicadas en la localidad de medellín y buscamos que seas parte de un cambio, de un nuevo mundo.
+                                Buscamos que seas parte de un nuevo cambio en el mundo.
                             </p>
                         </div>
                     </div>
@@ -49,7 +49,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                     </div>
                     <div class="col-lg-4">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
-                        <h2 class="h4 fw-bolder">Espiritu</h2>
+                        <h2 class="h4 fw-bolder">Espíritu</h2>
                         <img src="images/Espiritual.jpg" style="width: 30vh; height: fit-content; border-radius: 20px; box-shadow: 2px 2px 5px lightgray;">
                     </div>
                 </div>

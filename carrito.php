@@ -55,18 +55,18 @@ include('config/functions/funciones.php');
                             <?php } else { ?>
                                 <div class="columns">
                                     <div class="column">
-                                        <h2 class="is-size-2">Mi carrito de compras</h2>
-                                        <table class="table table-bordered">
-                                            <thead class="table-dark">
+                                        <h2 class="is-size-2" style="text-align: center">Mi carrito de compras</h2>
+                                        <table class="table">
+                                            <thead class="table-dark" style="font-family: Poppins-Bold">
                                                 <tr>
-                                                    <th>Nombre</th>
-                                                    <th>Imagen</th>
-                                                    <th>Cantidad</th>
-                                                    <th>Precio</th>
-                                                    <th>Eliminar</th>
+                                                    <th style="border-top-left-radius: 20px; text-align: center">Nombre</th>
+                                                    <th style="text-align: center">Producto</th>
+                                                    <th style="text-align: center">Cantidad</th>
+                                                    <th style="text-align: center">Precio c/u</th>
+                                                    <th style="border-top-right-radius: 20px; text-align: center">Eliminar</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody style="font-family: Poppins-Medium; text-align: center;">
                                                 <?php
                                                 include('config/conexion_config.php');
                                                 $total = 0;
@@ -87,8 +87,8 @@ include('config/functions/funciones.php');
                                                         <td>$<?php echo number_format($productos['VALOR_UNITARIO'], 2) ?></td>
                                                         <td>
                                                             <form action="config/functions/eliminar_del_carrito.php" method="post">
-                                                                <input type="hidden" name="id_producto" value="<?php echo $productos['PRODUCTO_ID'] ?>">
-                                                                <input type="hidden" name="redireccionar_carrito">
+                                                                <input type="hidden" id="id_producto" name="id_producto" value="<?php echo $productos['PRODUCTO_ID'] ?>">
+                                                                <input type="hidden" id="id_sesion" name="id_sesion" value="<?php printf($idSesion); ?>">
                                                                 <button class="btn btn-primary btn-sm">
                                                                     x
                                                                 </button>
@@ -116,38 +116,27 @@ include('config/functions/funciones.php');
 
                 <div class="row">
                     <div class="col-md-6">
-
                     </div>
                     <div class="col-md-6 pl-5">
-                        <div class="row justify-content-end">
-                            <div class="col-md-7">
-                                <div class="row">
-                                    <div class="col-md-12 text-right border-bottom mb-5">
-                                        <h3 class="text-black h4 text-uppercase">Costo total</h3>
+                        <form action="/config/register/registro_venta_config.php" method="post">
+                            <div class="row justify-content-end">
+                                <div class="col-md-7">
+                                    <div class="row">
+                                        <div class="col-md-6 text-right border-bottom mb-5">
+                                            <h3 class="text-black h4 text-uppercase">Costo total</h3>
+                                        </div>
+                                        <div class="col-md-6 text-right border-bottom mb-5">
+                                            <strong class="text-black">$<?php echo number_format($total, 2) ?></strong>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <span class="text-black">Subtotal</span>
+                                    <div class="row">
+                                        <input type="hidden" id="valorTotal" name="valorTotal" value="<?php printf($total) ?>">
+                                        <input type="hidden" id="id_sesion" name="id_sesion" value="<?php printf($idSesion); ?>">
+                                        <button style="font-family: Poppins-Bold;" class="btn btn-primary btn-lg ms-2">Finalizar venta</button>
                                     </div>
-                                    <div class="col-md-6 text-right">
-                                        <strong class="text-black">$<?php echo number_format($total, 2) ?></strong>
-                                    </div>
-                                </div>
-                                <div class="row mb-5">
-                                    <div class="col-md-6">
-                                        <span class="text-black">Total</span>
-                                    </div>
-                                    <div class="col-md-6 text-right">
-                                        <strong class="text-black">$<?php echo number_format($total, 2) ?></strong>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div id="paypal-button-container" class="col-md-12"></div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     <?php } ?>
                     </div>
                 </div>
@@ -158,33 +147,6 @@ include('config/functions/funciones.php');
 
     </div>
 
-    <script>
-        paypal.Buttons({
-
-            createOrder: function(data, actions) {
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: '<?php echo $total ?>'
-                        }
-                    }]
-                });
-            },
-            onApprove: function(data, actions) {
-
-                return actions.order.capture().then(function(orderData) {
-                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-                    var transaction = orderData.purchase_units[0].payments.captures[0];
-                    alert('¡GRACIAS POR TU COMPRA!');
-                    window.location.href = 'eliminar_del_carrito copy.php';
-                    const element = document.getElementById('paypal-button-container');
-                });
-
-            }
-
-
-        }).render('#paypal-button-container');
-    </script>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/jquery-ui.js"></script>
     <script src="js/popper.min.js"></script>
@@ -192,7 +154,6 @@ include('config/functions/funciones.php');
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/aos.js"></script>
-
     <script src="js/main.js"></script>
 
 </body>

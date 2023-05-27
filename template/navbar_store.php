@@ -11,7 +11,7 @@ include_once('config/functions/funciones.php');
         </button>
         <div class="collapse navbar-collapse " id="navbarCollapse">
             <div class="navbar-nav">
-                <a style="text-decoration: none;" href="/config/exit_tienda.php"><span style="font-family: Poppins-Bold; ">TIENDA VIRTUAL</span></a>
+                <a style="text-decoration: none;" href="/tienda_virtual.php"><span style="font-family: Poppins-Bold; ">TIENDA VIRTUAL</span></a>
             </div>
             <div class="navbar-nav ms-auto">
                 <a href="/carrito.php" class="site-cart" style="text-decoration: none;">
@@ -19,7 +19,6 @@ include_once('config/functions/funciones.php');
                         <strong>
                             CARRITO
                             <?php
-
                             $conteo = obtenerIdsDeProductosEnCarrito();
                             if ($conteo > 0) {
                                 printf("(%d)", $conteo);

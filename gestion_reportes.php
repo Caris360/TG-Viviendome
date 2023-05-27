@@ -80,17 +80,6 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                         </div>
                                     </div>
 
-                                    <!--<div class="col-md-2 mb-2" id="LabelPagos">
-                                        <div class="form-outline">
-                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Selecciona el tipo:</label>
-                                            <select required id="SeleccionPagos" name="SeleccionPagos" class="form-control form-control-lg">
-                                                <option value="0" selected disabled>Seleccione uno</option>
-                                                <option value="1">Clientes</option>
-                                                <option value="2">Rango Fechas</option>
-                                                <option value="3">Totalidad</option>
-                                            </select>
-                                        </div>
-                                    </div>-->
                                     <div class="col-md-4 mb-2" id="LabelClientes">
                                         <div class="form-outline">
                                             <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Nombre Cliente:</label>
@@ -108,24 +97,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                             </select>
                                         </div>
                                     </div>
-                                    <!--<div class="col-md-2 mb-2" id="LabelFechaInicio">
-                                        <div class="form-outline">
-                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Fecha inicio:</label>
-                                            <span class="datepicker-toggle">
-                                                <span class="datepicker-toggle-button"></span>
-                                                <input required id="FechaInicio" name="FechaInicio" max="<?= date('Y-m-d') ?>" value="<?= date('Y-m-d') ?>" type="date" class="datepicker-input form-control form-control-lg">
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 mb-2" id="LabelFechaFin">
-                                        <div class="form-outline">
-                                            <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Fecha fin:</label>
-                                            <span class="datepicker-toggle">
-                                                <span class="datepicker-toggle-button"></span>
-                                                <input required id="FechaFin" name="FechaFin" max="<?= date('Y-m-d') ?>" value="<?= date('Y-m-d') ?>" type="date" class="datepicker-input form-control form-control-lg">
-                                            </span>
-                                        </div>
-                                    </div>-->
+                                    
                                     <div class="col-md-2 mb-2" id="LabelReportePagosPersona">
                                         <div class="form-outline">
                                             <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Obtener Reporte:</label>

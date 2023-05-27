@@ -33,9 +33,6 @@ if ($validaCliente->num_rows == 1) {
         case '4':
             $Tipo = 'Tarjeta Identidad';
             break;
-        /*case '5':
-            $Tipo = 'Pasaporte';
-            break;*/
     }
     $insertar = mysqli_query($conexion, "INSERT INTO cliente VALUES ('$Documento', '$Tipo', '$NombreCliente', '$Direccion', '$Contacto', '$Correo')");
     $insertarHistorico = mysqli_query($conexion, "INSERT INTO cliente_historico VALUES ('$Documento', '$Tipo', '$NombreCliente', '$Direccion', '$Contacto', '$Correo')");
