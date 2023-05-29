@@ -25,11 +25,11 @@ if ($validaPago->num_rows != 1) {
 
     if ($MetodoPago == 'Efectivo' || $MetodoPago == 'Transferencia') {
         if ($ValorPago == $ValorOriginal || $ValorPago >= $ValorOriginal) {
-            $ValorCambio = $ValorPago - $ValorOriginal;
+            $ValorCambio = intval($ValorPago) - intval($ValorOriginal);
             $estadoIns = 'Pago';
         }
         if ($ValorPago <= $ValorOriginal) {
-            $ValorPendiente = $ValorOriginal - $ValorPago;
+            $ValorPendiente = intval($ValorOriginal) - intval($ValorPago);
         }
     }
 
@@ -62,11 +62,11 @@ if ($validaPago->num_rows != 1) {
 
     if ($MetodoPago == 'Efectivo' || $MetodoPago == 'Transferencia') {
         if ($ValorPago == $valorDeuda[0] || $ValorPago >= $valorDeuda[0]) {
-            $ValorCambio = $ValorPago - $valorDeuda[0];
+            $ValorCambio = intval($ValorPago) - intval($valorDeuda[0]);
             $estadoIns = 'Pago';
         }
         if ($ValorPago <= $valorDeuda[0]) {
-            $ValorPendiente = $valorDeuda[0] - $ValorPago;
+            $ValorPendiente = intval($valorDeuda[0]) - intval($ValorPago);
         }
     }
 

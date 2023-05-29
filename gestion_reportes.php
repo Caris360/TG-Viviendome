@@ -108,7 +108,7 @@ if (!isset($_SESSION['UsuarioActivo'])) {
                                     <div class="col-md-2 mb-2" id="LabelRefrescar">
                                         <div class="form-outline">
                                             <label style="font-family: Poppins-Bold;" class="form-label" for="form3Example8">Refrescar</label>
-                                            <a style="font-family: Poppins-Bold; " id="Refrescar" href="/gestion_reportes.php" name="Refrescar" class="btn btn-primary form-control">Generar</a>
+                                            <a style="font-family: Poppins-Bold; " id="Refrescar" href="/gestion_reportes.php" name="Refrescar" class="btn btn-primary form-control">Refrescar</a>
                                         </div>
                                     </div>
 
